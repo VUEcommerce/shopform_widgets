@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopform_widgets/buttons/follow/sf_follow_type.dart';
 import 'package:shopform_widgets/buttons/sf_elevated_button.dart';
-import 'package:shopform_widgets/ultils/sf_app_color.dart';
+import 'package:shopform_widgets/utils/sf_app_color.dart';
 
 class SFFollowButton extends StatelessWidget {
   final VoidCallback onTap;

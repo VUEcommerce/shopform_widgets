@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shopform_widgets/stokes/sf_horizontal_error_line.dart';
 import 'package:shopform_widgets/stokes/sf_horizontal_line.dart';
-import 'package:shopform_widgets/ultils/sf_app_color.dart';
-import 'package:shopform_widgets/ultils/sf_app_text_style.dart';
+import 'package:shopform_widgets/utils/sf_app_color.dart';
+import 'package:shopform_widgets/utils/sf_app_text_style.dart';
 
 class SFHeaderTextFieldButton extends StatelessWidget {
   final String header;

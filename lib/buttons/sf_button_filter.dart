@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopform_widgets/icons/sf_filter_icon.dart';
-import 'package:shopform_widgets/ultils/sf_app_text_style.dart';
+import 'package:shopform_widgets/utils/sf_app_text_style.dart';
 import 'package:shopform_widgets/constants/content_spacer_constants.dart';
 
 class SFButtonFilter extends StatelessWidget {

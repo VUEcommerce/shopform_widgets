@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopform_widgets/ultils/sf_app_color.dart';
+import 'package:shopform_widgets/utils/sf_app_color.dart';
 
 enum SFCheckButtonState { checked, unchecked, halfChecked }
 
