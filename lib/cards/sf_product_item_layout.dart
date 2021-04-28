@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopform_widgets/constants/icon_name_constants.dart';
-import 'package:shopform_widgets/images/sf_vue_cached_network_image.dart';
+import 'package:shopform_widgets/images/sf_cached_network_image.dart';
 
 class SFProductItemLayout extends StatelessWidget {
   final String image;
@@ -25,7 +25,7 @@ class SFProductItemLayout extends StatelessWidget {
             children: [
               Positioned.fill(
                 child: (image?.isNotEmpty ?? false)
-                    ? SFVueCachedNetworkImage(
+                    ? SFCachedNetworkImage(
                         imageUrl: image,
                         fit: BoxFit.cover,
                         placeholder: Image.asset(productPlaceholder),
