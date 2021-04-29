@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:shopform_widgets/constants/sf_product_image_constants.dart';
+import 'package:shopform_widgets/constants/sf_product_constants.dart';
 import 'package:shopform_widgets/content_space/sf_content_space.dart';
 import 'package:shopform_widgets/utils/sf_app_color.dart';
 
@@ -37,7 +37,7 @@ class SFLoadingEffect extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          LoadingItem(height: itemWidth/SFProductImageConstants.ratio),
+          LoadingItem(height: itemWidth/SFProductConstants.imageRatio),
           SFContentSpace.vertical12(),
           LoadingItem(height: 14),
           SFContentSpace.vertical2(),

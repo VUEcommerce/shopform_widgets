@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopform_widgets/icons/sf_sort_by_icon.dart';
 import 'package:shopform_widgets/utils/sf_app_text_style.dart';
-import 'package:shopform_widgets/constants/content_spacer_constants.dart';
+import 'package:shopform_widgets/constants/sf_content_spacer_constants.dart';
 
 class SFButtonSort extends StatelessWidget {
   final VoidCallback onTap;
@@ -46,7 +46,7 @@ class SFButtonSort extends StatelessWidget {
                     letterSpacing: -0.24,
                   ),
                 ),
-                ContentSpacerConstants.horizontalFour,
+                SFContentSpacerConstants.horizontalFour,
                 SFSortByIcon(
                   height: 12.0,
                   width: 12.0,

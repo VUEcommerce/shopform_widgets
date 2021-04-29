@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopform_widgets/constants/icon_name_constants.dart';
+import 'package:shopform_widgets/constants/sf_icon_name_constants.dart';
 import 'package:shopform_widgets/images/sf_cached_network_image.dart';
 
 class SFNetworkImage extends StatelessWidget {
