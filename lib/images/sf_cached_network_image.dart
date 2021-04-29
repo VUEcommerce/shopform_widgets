@@ -39,12 +39,12 @@ class SFCachedNetworkImage extends StatelessWidget {
   }) : super(key: key);
 
   int get getCacheHeight {
-    if (height == null) return null;
+    if (height == null || height.isInfinite) return null;
     return (height * 2).toInt();
   }
 
   int get getCacheWidth {
-    if (width == null) return null;
+    if (width == null || width.isInfinite) return null;
     return (width * 2).toInt();
   }
   final OnGetRatioImage onGetRatioImage;
