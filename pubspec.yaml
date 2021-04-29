@@ -1,6 +1,6 @@
 name: shopform_widgets
 description: A new Flutter package project.
-version: 0.0.2
+version: 0.0.4
 author:
 homepage:
 
@@ -12,7 +12,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_svg:
+  flutter_svg: ^0.18.0
+  equatable: ^1.2.5
 
 dev_dependencies:
   flutter_test:
