@@ -11,6 +11,7 @@ const iconCreatePost = '${folderAssetsIcons}icon_create_post.svg';
 const iconCreatePostSemantics = 'Create Post';
 const iconDoorbell = '${folderAssetsIcons}doorbell.svg';
 const iconFaq = '${folderAssetsIcons}faq.svg';
+const iconCoin = '${folderAssetsIcons}icon_coin.svg';
 const iconInfo = '${folderAssetsIcons}info.svg';
 const iconInstagramSolidWhite = '${folderAssetsIcons}instagram_solid_white.svg';
 const iconInstagramSolidWhiteSemantics = 'Instagram';
