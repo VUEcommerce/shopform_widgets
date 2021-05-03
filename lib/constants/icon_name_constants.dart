@@ -11,6 +11,8 @@ const iconCreatePost = '${folderAssetsIcons}icon_create_post.svg';
 const iconCreatePostSemantics = 'Create Post';
 const iconDoorbell = '${folderAssetsIcons}doorbell.svg';
 const iconFaq = '${folderAssetsIcons}faq.svg';
+const iconCoin = '${folderAssetsIcons}icon_coin.svg';
+const iconCoinOutLine = '${folderAssetsIcons}coin_outline.svg';
 const iconInfo = '${folderAssetsIcons}info.svg';
 const iconInstagramSolidWhite = '${folderAssetsIcons}instagram_solid_white.svg';
 const iconInstagramSolidWhiteSemantics = 'Instagram';
@@ -144,6 +146,8 @@ const report = '${folderAssetsIcons}report.svg';
 const heartOutlineYellow = '${folderAssetsIcons}heart_outline_yellow.svg';
 const searchGrey = '${folderAssetsIcons}search_grey.svg';
 const simulatedImage1 = '${folderAssetsIcons}simulated_brand_img.png';
+const shopFormCoinBackground =
+    '${folderAssetsImages}shopform_coin_background.png';
 const simulatedImage2 = '${folderAssetsIcons}simulated_collection_img.png';
 const simulatedImage3 = '${folderAssetsIcons}simulated_product_img.png';
 const simulatedImage4 = '${folderAssetsIcons}simulated_stream_img.png';
