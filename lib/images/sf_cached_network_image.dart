@@ -1,11 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:shopform_widgets/images/sf_base_cached_network_image.dart';
+import 'package:shopform_widgets/images/sf_getting_ratio_network_image_helper.dart';
 
-typedef OnGetRatioImage = Function(double ratio);
-
-class SFCachedNetworkImage extends StatelessWidget {
-  final String imageUrl;
+class SFCachedNetworkImage extends SFBaseCachedNetworkImage {
   final Widget placeholder;
   final Widget errorWidget;
   final ImageErrorWidgetBuilder errorBuilder;
@@ -22,7 +21,7 @@ class SFCachedNetworkImage extends StatelessWidget {
 
   SFCachedNetworkImage({
     Key key,
-    @required this.imageUrl,
+    @required String imageUrl,
     this.placeholder,
     this.errorWidget,
     this.width,
@@ -35,72 +34,70 @@ class SFCachedNetworkImage extends StatelessWidget {
     this.colorBlendMode,
     this.errorBuilder,
     this.loadingBuilder,
-    this.backgroundColor, this.onGetRatioImage,
-  }) : super(key: key);
+    this.backgroundColor,
+    SFOnGetRatioImage onGetRatioImage,
+  }) : super(key: key, onGetRatioImage: onGetRatioImage, imageUrl: imageUrl);
 
+  @override
+  _VueCachedNetworkImageState createState() => _VueCachedNetworkImageState();
+}
+
+class _VueCachedNetworkImageState extends State<SFCachedNetworkImage>
+    with SFGettingRatioNetworkImageHelper<SFCachedNetworkImage> {
   int get getCacheHeight {
-    if (height == null || height.isInfinite) return null;
-    return (height * 2).toInt();
+    if (widget.height == null || widget.height.isInfinite) return null;
+    return (widget.height * 2).toInt();
   }
 
   int get getCacheWidth {
-    if (width == null || width.isInfinite) return null;
-    return (width * 2).toInt();
+    if (widget.width == null || widget.width.isInfinite) return null;
+    return (widget.width * 2).toInt();
   }
-  final OnGetRatioImage onGetRatioImage;
 
   @override
   Widget build(BuildContext context) {
-    var image = Image.network(
-      imageUrl,
-      width: width,
-      height: height,
-      cacheWidth: getCacheHeight != null ? null : getCacheWidth,
-      cacheHeight: getCacheHeight,
-      color: color,
-      colorBlendMode: colorBlendMode,
-      errorBuilder: (context, error, stackTrace) {
-        return errorWidget ??
-            errorBuilder?.call(context, error, stackTrace) ??
-            SizedBox();
-      },
-      repeat: repeat,
-      alignment: alignment,
-      loadingBuilder: (context, child, loadingProgress) {
-        return loadingBuilder?.call(context, child, loadingProgress) ??
-            AnimatedSwitcher(
-              duration: const Duration(milliseconds: 500),
-              layoutBuilder: (currentChild, previousChildren) => currentChild,
-              transitionBuilder: (Widget child, Animation<double> animation) {
-                return FadeTransition(child: child, opacity: animation);
-              },
-              child: loadingProgress == null
-                  ? child
-                  : (placeholder ?? SizedBox()),
-            );
-      },
-      frameBuilder: (BuildContext context, Widget child, int frame,
-          bool wasSynchronouslyLoaded) {
-        if (wasSynchronouslyLoaded) {
-          return child;
-        }
-        return frame != null ? child : (placeholder ?? SizedBox());
-      },
-      filterQuality: filterQuality,
-      fit: fit,
-    );
-    image.image
-        .resolve(ImageConfiguration())
-        .addListener(ImageStreamListener(
-            (ImageInfo info, bool _) {
-              if(onGetRatioImage != null){
-                onGetRatioImage(info.image.width/info.image.height);
-              }
-        }
-    ));
     return Container(
-      color: backgroundColor ?? Colors.transparent,
-      child: image,
+      color: widget.backgroundColor ?? Colors.transparent,
+      child: Image(
+        image: ResizeImage.resizeIfNeeded(
+          getCacheHeight != null ? null : getCacheWidth,
+          getCacheHeight,
+          image,
+        ),
+        width: widget.width,
+        height: widget.height,
+        color: widget.color,
+        colorBlendMode: widget.colorBlendMode,
+        errorBuilder: (context, error, stackTrace) {
+          return widget.errorWidget ??
+              widget.errorBuilder?.call(context, error, stackTrace) ??
+              SizedBox();
+        },
+        repeat: widget.repeat,
+        alignment: widget.alignment,
+        loadingBuilder: (context, child, loadingProgress) {
+          return widget.loadingBuilder?.call(context, child, loadingProgress) ??
+              AnimatedSwitcher(
+                duration: const Duration(milliseconds: 500),
+                layoutBuilder: (currentChild, previousChildren) => currentChild,
+                transitionBuilder: (Widget child, Animation<double> animation) {
+                  return FadeTransition(child: child, opacity: animation);
+                },
+                child: loadingProgress == null
+                    ? child
+                    : (widget.placeholder ?? SizedBox()),
+              );
+        },
+        frameBuilder: (BuildContext context, Widget child, int frame,
+            bool wasSynchronouslyLoaded) {
+          if (wasSynchronouslyLoaded) {
+            return child;
+          }
+          return frame != null ? child : (widget.placeholder ?? SizedBox());
+        },
+        filterQuality: widget.filterQuality,
+        fit: widget.fit,
+      ),
     );
   }
 }
