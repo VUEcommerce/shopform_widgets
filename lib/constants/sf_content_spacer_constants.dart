@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ContentSpacerConstants {
+class SFContentSpacerConstants {
   static const horizontalFour = SizedBox(
     width: 4.0,
   );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopform_widgets/constants/content_spacer_constants.dart';
+import 'package:shopform_widgets/constants/sf_content_spacer_constants.dart';
 
 class SFSortSelectedChip extends StatelessWidget {
   final String textChoice;
@@ -33,8 +33,8 @@ class SFSortSelectedChip extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Text('$sortByText: ${textChoice}'),
-            ContentSpacerConstants.horizontalFour,
-            ContentSpacerConstants.horizontalEight,
+            SFContentSpacerConstants.horizontalFour,
+            SFContentSpacerConstants.horizontalEight,
             GestureDetector(
               onTap: onTapCancel,
               child: Icon(
