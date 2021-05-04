@@ -6,6 +6,8 @@ class SFTextChip extends StatelessWidget {
   final EdgeInsets padding;
   final Color backgroundColor;
   final Color textColor;
+  final Color disabledBackgroundColor;
+  final Color disabledTextColor;
   final bool enable;
 
   const SFTextChip(
@@ -14,6 +16,8 @@ class SFTextChip extends StatelessWidget {
       this.padding,
       this.backgroundColor,
       this.textColor,
+      this.disabledBackgroundColor = SFAppColor.whiteSmoke,
+      this.disabledTextColor = SFAppColor.grey,
       this.enable = true})
       : super(key: key);
 
@@ -23,9 +27,9 @@ class SFTextChip extends StatelessWidget {
       color: Colors.transparent,
       child: Container(
         decoration: BoxDecoration(
-          color: !enable
-              ? SFAppColor.whiteSmoke
-              : (backgroundColor ?? SFAppColor.tulipTreeGold),
+          color: enable
+              ? (backgroundColor ?? SFAppColor.tulipTreeGold)
+              : disabledBackgroundColor,
           borderRadius: BorderRadius.circular(5),
         ),
         padding: padding ?? const EdgeInsets.all(2),
@@ -33,7 +37,7 @@ class SFTextChip extends StatelessWidget {
           text,
           style: TextStyle(
               fontSize: 16,
-              color: enable ? textColor : SFAppColor.grey,
+              color: enable ? textColor : disabledTextColor,
               height: 1.375),
         ),
       ),

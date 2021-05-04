@@ -1045,6 +1045,24 @@ class SFAppText extends StatelessWidget {
         ),
       );
 
+  factory SFAppText.tulipTreeGold16Bold(
+          {String text,
+          TextAlign textAlign,
+          TextOverflow textOverflow,
+          int maxLines,
+          TextStyle style}) =>
+      SFAppText(
+        text,
+        textAlign: textAlign,
+        textOverflow: textOverflow,
+        maxLines: maxLines,
+        style: TextStyle(
+                color: SFAppColor.tulipTreeGold,
+                fontSize: 16,
+                fontWeight: FontWeight.bold)
+            .merge(style),
+      );
+
   factory SFAppText.tulipTreeGold18Normal({
     String text,
     TextAlign textAlign,
@@ -1208,6 +1226,24 @@ class SFAppText extends StatelessWidget {
         ),
       );
 
+  factory SFAppText.white24Bold(
+          {String text,
+          TextAlign textAlign,
+          TextOverflow textOverflow,
+          int maxLines,
+          TextStyle style}) =>
+      SFAppText(
+        text,
+        textAlign: textAlign,
+        textOverflow: textOverflow,
+        maxLines: maxLines,
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+          fontSize: 24,
+        ).merge(style),
+      );
+
   factory SFAppText.white22Bold({
     String text,
     TextAlign textAlign,
@@ -1224,6 +1260,24 @@ class SFAppText extends StatelessWidget {
           color: Colors.white,
           fontSize: 22,
         ),
+      );
+
+  factory SFAppText.white45Bold(
+          {String text,
+          TextAlign textAlign,
+          TextOverflow textOverflow,
+          int maxLines,
+          TextStyle style}) =>
+      SFAppText(
+        text,
+        textAlign: textAlign,
+        textOverflow: textOverflow,
+        maxLines: maxLines,
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+          fontSize: 45,
+        ).merge(style),
       );
 
   factory SFAppText.islamicGreen14Normal({
