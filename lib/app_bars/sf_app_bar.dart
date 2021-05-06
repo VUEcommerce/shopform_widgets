@@ -35,9 +35,9 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
           color: isTransparent
               ? Colors.transparent
               : appBarTheme?.color ??
-                  themeData.primaryColor, // appBarTheme?.color ??
+              themeData.primaryColor, // appBarTheme?.color ??
           elevation:
-              isTransparent ? 0.0 : appBarTheme?.elevation ?? _defaultElevation,
+          isTransparent ? 0.0 : appBarTheme?.elevation ?? _defaultElevation,
           child: Semantics(
             explicitChildNodes: true,
             child: isEmpty || appBar == null ? Container() : appBar,
@@ -51,7 +51,7 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => isEmpty
       ? Size(0.0, 0.0)
       : Size.fromHeight((appBar != null ? kToolbarHeight : 0.0) +
-          (appBar != null ? appBar.bottom?.preferredSize?.height ?? 0.0 : 0.0));
+      (appBar != null ? appBar.bottom?.preferredSize?.height ?? 0.0 : 0.0));
 
   factory SFAppBar.empty({bool isTransparent = false}) {
     return SFAppBar(isEmpty: true, isTransparent: isTransparent);
@@ -94,10 +94,10 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
         leading: leading,
         title: title != null
             ? Text(
-                title,
-                style: TextStyle(
-                    fontSize: titleFontSize, fontWeight: FontWeight.bold),
-              )
+          title,
+          style: TextStyle(
+              fontSize: titleFontSize, fontWeight: FontWeight.bold),
+        )
             : null,
         bottom: bottom,
       ),
@@ -117,6 +117,7 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
     bool autoFocus = false,
     bool enable = true,
     bool alwaysHideCancel = false,
+    bool permanentCancelButton = false,
     VoidCallback onTap,
     VoidCallback onCancel,
     @required String cancelText,
@@ -131,18 +132,20 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             height: 35,
             child: SFSearchField(
-                cancelText: cancelText,
-                hint: hintText,
-                cancelColor: Colors.white,
-                suffixIcon: suffixIcon,
-                onSubmitted: onSubmitted,
-                controller: controller,
-                onCancel: onCancel,
-                onFocusChanged: onFocusChanged,
-                onTap: onTap,
-                autoFocus: autoFocus,
-                alwaysHideCancel: alwaysHideCancel,
-                enable: enable),
+              cancelText: cancelText,
+              hint: hintText,
+              cancelColor: Colors.white,
+              suffixIcon: suffixIcon,
+              onSubmitted: onSubmitted,
+              controller: controller,
+              onCancel: onCancel,
+              onFocusChanged: onFocusChanged,
+              onTap: onTap,
+              autoFocus: autoFocus,
+              alwaysHideCancel: alwaysHideCancel,
+              permanentCancelButton: permanentCancelButton,
+              enable: enable,
+            ),
           ),
           leading: leading,
           actions: actions),
@@ -170,12 +173,12 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
         elevation: 0,
         title: title != null
             ? Text(
-                title,
-                style: TextStyle(
-                    fontSize: titleFontSize,
-                    fontWeight: FontWeight.bold,
-                    color: SFAppColor.black),
-              )
+          title,
+          style: TextStyle(
+              fontSize: titleFontSize,
+              fontWeight: FontWeight.bold,
+              color: SFAppColor.black),
+        )
             : null,
         bottom: bottom,
       ),
@@ -204,12 +207,12 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
         elevation: 0,
         title: title != null
             ? Text(
-                title,
-                style: TextStyle(
-                    fontSize: titleFontSize,
-                    fontWeight: FontWeight.bold,
-                    color: SFAppColor.black),
-              )
+          title,
+          style: TextStyle(
+              fontSize: titleFontSize,
+              fontWeight: FontWeight.bold,
+              color: SFAppColor.black),
+        )
             : null,
         bottom: bottom,
       ),
