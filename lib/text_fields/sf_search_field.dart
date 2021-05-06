@@ -17,6 +17,7 @@ class SFSearchField extends StatefulWidget {
   final bool enable;
   final ValueChanged<bool> onFocusChanged;
   final bool alwaysHideCancel;
+  final bool permanentCancelButton;
   final String cancelText;
 
   SFSearchField({
@@ -33,6 +34,7 @@ class SFSearchField extends StatefulWidget {
     this.autoFocus = false,
     this.enable = true,
     this.alwaysHideCancel = false,
+    this.permanentCancelButton = false,
     @required this.cancelText,
   });
 
@@ -138,66 +140,74 @@ class _SFSearchFieldState extends State<SFSearchField>
             ],
           ),
         ),
-        widget.alwaysHideCancel
-            ? Container()
-            : Container(
-                alignment: Alignment.centerLeft,
-                child: AnimatedBuilder(
-                  animation: _animController,
-                  builder: (context, child) {
-                    return SizedBox(
-                      width: widget.suffixIcon != null
-                          ? 40 + 16 * _animController.value
-                          : 56 * _animController.value,
-                      height: 40,
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          if (_animController.isCompleted)
-                            Padding(
-                              padding: const EdgeInsets.only(left: 12),
-                              child: GestureDetector(
-                                onTap: () {
-                                  if (!_internalFocus.hasFocus &&
-                                      _internalTfController.text.isNotEmpty) {
-                                    setState(() {
-                                      _internalTfController.clear();
-                                    });
-                                    _animController.reverse();
-                                  } else {
-                                    _internalTfController.clear();
-                                    _internalFocus.unfocus();
-                                  }
-                                  widget.onCancel?.call();
-                                },
-                                child: Text(
-                                  widget.cancelText,
-                                  maxLines: 1,
-                                  textAlign: TextAlign.center,
-                                  overflow: TextOverflow.fade,
-                                  style: SFAppTextStyle.of(context,
-                                      color:
-                                          widget.cancelColor ?? Colors.black),
-                                ),
-                              ),
-                            ),
-                          if (_animController.isDismissed)
-                            widget.suffixIcon != null
-                                ? SizedBox(
-                                    width: 40,
-                                    height: 40 * (1 - _animController.value),
-                                    child: Center(
-                                      child: widget.suffixIcon,
-                                    ),
-                                  )
-                                : Container()
-                        ],
-                      ),
-                    );
-                  },
-                ),
-              ),
+        widget.alwaysHideCancel ? Container() : buildCancelButtonBaseOnTextFieldState(),
       ]),
+    );
+  }
+
+  Widget buildCancelButtonBaseOnTextFieldState() {
+    if (widget.permanentCancelButton) {
+      return buildCancelButton(context);
+    }
+    return Container(
+      alignment: Alignment.centerLeft,
+      child: AnimatedBuilder(
+        animation: _animController,
+        builder: (context, child) {
+          return SizedBox(
+            width: widget.suffixIcon != null
+                ? 40 + 16 * _animController.value
+                : 56 * _animController.value,
+            height: 40,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                if (_animController.isCompleted)
+                  buildCancelButton(context),
+                if (_animController.isDismissed)
+                  widget.suffixIcon != null
+                      ? SizedBox(
+                    width: 40,
+                    height: 40 * (1 - _animController.value),
+                    child: Center(
+                      child: widget.suffixIcon,
+                    ),
+                  )
+                      : Container()
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Padding buildCancelButton(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 12),
+      child: GestureDetector(
+        onTap: () {
+          if (!_internalFocus.hasFocus &&
+              _internalTfController.text.isNotEmpty) {
+            setState(() {
+              _internalTfController.clear();
+            });
+            _animController.reverse();
+          } else {
+            _internalTfController.clear();
+            _internalFocus.unfocus();
+          }
+          widget.onCancel?.call();
+        },
+        child: Text(
+          widget.cancelText,
+          maxLines: 1,
+          textAlign: TextAlign.center,
+          overflow: TextOverflow.fade,
+          style: SFAppTextStyle.of(context,
+              color: widget.cancelColor ?? Colors.black),
+        ),
+      ),
     );
   }
 }
