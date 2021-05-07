@@ -150,7 +150,7 @@ class SFLoadingEffect extends StatelessWidget {
 
   factory SFLoadingEffect.consumerShopByBrandsItemInDetailList() {
     final child = Container(
-      padding: const EdgeInsets.only(right: 32.0, bottom: 52),
+      padding: const EdgeInsets.only(bottom: 52),
       child: Row(
         children: [
           Expanded(
