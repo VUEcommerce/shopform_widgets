@@ -572,6 +572,7 @@ class _SFDropdownRouteResult<T> {
 
 class _SFMenuLimits {
   const _SFMenuLimits(this.top, this.bottom, this.height, this.scrollOffset);
+
   final double top;
   final double bottom;
   final double height;
@@ -1286,6 +1287,7 @@ class _SFDropdownButtonState<T> extends State<SFDropdownButton<T>>
   _SFDropdownRoute<T> _dropdownRoute;
   Orientation _lastOrientation;
   FocusNode _internalNode;
+
   FocusNode get focusNode => widget.focusNode ?? _internalNode;
   bool _hasPrimaryFocus = false;
   Map<Type, Action<Intent>> _actionMap;
@@ -1420,7 +1422,7 @@ class _SFDropdownButtonState<T> extends State<SFDropdownButton<T>>
       padding: _kMenuItemPadding.resolve(textDirection),
       selectedIndex: _selectedIndex ?? 0,
       elevation: widget.elevation,
-      theme: Theme.of(context, shadowThemeOnly: true),
+      theme: Theme.of(context),
       style: _textStyle,
       barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
       itemHeight: widget.itemHeight,
@@ -1481,7 +1483,7 @@ class _SFDropdownButtonState<T> extends State<SFDropdownButton<T>>
       widget.onChanged != null;
 
   Orientation _getOrientation(BuildContext context) {
-    var result = MediaQuery.of(context, nullOk: true)?.orientation;
+    var result = MediaQuery.of(context)?.orientation;
     if (result == null) {
       // If there's no MediaQuery, then use the window aspect to determine
       // orientation.
