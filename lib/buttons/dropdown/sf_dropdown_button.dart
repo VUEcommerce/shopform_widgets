@@ -706,7 +706,7 @@ class _SFDropdownRoute<T> extends PopupRoute<_SFDropdownRouteResult<T>> {
     // it. This scroll offset is only accurate for fixed height menu items
     // (the default).
     final scrollOffset = preferredMenuHeight <= maxMenuHeight
-        ? 0
+        ? 0.0
         : math.max(0.0, selectedItemOffset - (buttonTop - menuTop));
 
     return _SFMenuLimits(menuTop, menuBottom, menuHeight, scrollOffset);

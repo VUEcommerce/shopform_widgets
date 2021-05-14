@@ -150,7 +150,7 @@ class SFLoadingEffect extends StatelessWidget {
 
   factory SFLoadingEffect.consumerShopByBrandsItemInDetailList() {
     final child = Container(
-      padding: const EdgeInsets.only(right: 32.0, bottom: 52),
+      padding: const EdgeInsets.only(bottom: 52),
       child: Row(
         children: [
           Expanded(
@@ -575,6 +575,60 @@ class SFLoadingEffect extends StatelessWidget {
           ],
         ),
       ],
+    );
+    return SFLoadingEffect(child: child);
+  }
+
+  factory SFLoadingEffect.transactionHistoryItem() {
+    final child = Container(
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: Row(
+        children: [
+          Container(
+            width: 64,
+            height: 64,
+            color: SFAppColor.white,
+          ),
+          SFContentSpace.horizontal8(),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 200,
+                  height: 10,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    color: SFAppColor.white,
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+                SFContentSpace.vertical8(),
+                Container(
+                  width: 150,
+                  height: 10,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    color: SFAppColor.white,
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+                SFContentSpace.vertical8(),
+                Container(
+                  width: 100,
+                  height: 10,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    color: SFAppColor.white,
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
     return SFLoadingEffect(child: child);
   }

@@ -1,4 +1,5 @@
 const folderAssetsIcons = 'assets/icons/';
+const folderAssetsLogo = 'assets/logo/';
 const folderAssetsHtmls = 'assets/htmls/';
 const folderAssetsImages = 'assets/images/';
 const iconAppBlack = '${folderAssetsIcons}app_logo_black.png';
@@ -247,3 +248,4 @@ const thickPlus = '${folderAssetsIcons}thick_plus.svg';
 const thickMinus = '${folderAssetsIcons}thick_minus.svg';
 const squaredTickIcon = '${folderAssetsIcons}squared_tick_icon.svg';
 const productNotFound = '${folderAssetsImages}product_not_found.svg';
+const appIcon = '${folderAssetsLogo}shopform_logo_black.png';
