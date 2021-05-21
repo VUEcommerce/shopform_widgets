@@ -237,6 +237,7 @@ const warehouseSemantics = 'Warehouse';
 const boxInactive = '${folderAssetsIcons}icon_box_inactive.svg';
 const boxActive = '${folderAssetsIcons}icon_box_active.svg';
 const toShipOutline = '${folderAssetsIcons}to_ship_outline.svg';
+const toPackOutline = '${folderAssetsIcons}to_pack_outline.svg';
 const toBeCollectedOutline = '${folderAssetsIcons}to_be_collected_outline.svg';
 const shippingCarOutline = '${folderAssetsIcons}shipping_car_outline.svg';
 const completedPurchaseOutline =
