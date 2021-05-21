@@ -703,6 +703,25 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
+  factory SFAppText.red11Italic(
+          {String text,
+          TextAlign textAlign,
+          TextOverflow textOverflow,
+          int maxLines,
+          TextStyle style}) =>
+      SFAppText(
+        text,
+        textAlign: textAlign,
+        textOverflow: textOverflow,
+        maxLines: maxLines,
+        style: TextStyle(
+          fontWeight: FontWeight.w300,
+          color: SFAppColor.lightRed,
+          fontSize: 11,
+          fontStyle: FontStyle.italic,
+        ).merge(style),
+      );
+
   factory SFAppText.red14Bold(
           {String text,
           TextAlign textAlign,
