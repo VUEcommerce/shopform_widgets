@@ -640,8 +640,12 @@ class SFLoadingEffect extends StatelessWidget {
         children: [
           Row(
             children: [
-              buildText(width: 30),
+              buildText(width: 50),
               Spacer(),
+              buildText(width: 40),
+              SizedBox(
+                width: 20,
+              )
             ],
           ),
           SFContentSpace.vertical24(),
