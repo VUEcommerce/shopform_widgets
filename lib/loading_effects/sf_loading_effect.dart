@@ -633,6 +633,84 @@ class SFLoadingEffect extends StatelessWidget {
     return SFLoadingEffect(child: child);
   }
 
+  factory SFLoadingEffect.postsTaggedProductWidget() {
+    final child = Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              buildText(width: 30),
+              Spacer(),
+            ],
+          ),
+          SFContentSpace.vertical24(),
+          SizedBox(
+            height: 163,
+            child: ListView.separated(
+              padding: EdgeInsets.only(right: 16),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (_, index) {
+                final itemWidth = 123.0;
+                return SizedBox(
+                  width: itemWidth,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      buildContainer(
+                        width: itemWidth,
+                        height: itemWidth,
+                      ),
+                      SFContentSpace.vertical10(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          buildContainer(width: 30, height: 30, radius: 15),
+                          SFContentSpace.horizontal4(),
+                          buildText(width: 50)
+                        ],
+                      )
+                    ],
+                  ),
+                );
+              },
+              itemCount: 3,
+              separatorBuilder: (_, __) => SizedBox(
+                width: 16,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+    return SFLoadingEffect(child: child);
+  }
+
+  static Widget buildText({double width = 100}) {
+    return Container(
+      width: width,
+      height: 10,
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+        color: SFAppColor.white,
+        borderRadius: BorderRadius.circular(2),
+      ),
+    );
+  }
+
+  static Widget buildContainer(
+      {@required double width, @required double height, double radius = 0}) {
+    return Container(
+      width: width,
+      height: height,
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+        color: SFAppColor.white,
+        borderRadius: BorderRadius.circular(radius),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
