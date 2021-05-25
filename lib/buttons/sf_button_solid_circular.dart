@@ -5,17 +5,17 @@ import 'package:shopform_widgets/text/sf_app_text.dart';
 import 'package:shopform_widgets/utils/sf_app_color.dart';
 
 class SFButtonSolidCircular extends StatelessWidget {
-  final Color color;
+  final Color? color;
   final Widget icon;
-  final String text;
-  final VoidCallback onTap;
-  final double width;
-  final double height;
+  final String? text;
+  final VoidCallback? onTap;
+  final double? width;
+  final double? height;
 
   const SFButtonSolidCircular({
-    Key key,
+    Key? key,
     this.color,
-    @required this.icon,
+    required this.icon,
     this.text,
     this.onTap,
     this.width = 24.0,
@@ -23,11 +23,11 @@ class SFButtonSolidCircular extends StatelessWidget {
   }) : super(key: key);
 
   factory SFButtonSolidCircular.yellow(
-      {@required Widget icon,
-      String text,
-      Function() onTap,
-      double width,
-      double height}) {
+      {required Widget icon,
+      String? text,
+      VoidCallback? onTap,
+      double? width,
+      double? height}) {
     return SFButtonSolidCircular(
       color: SFAppColor.tulipTreeGold,
       icon: icon,
@@ -39,7 +39,7 @@ class SFButtonSolidCircular extends StatelessWidget {
   }
 
   factory SFButtonSolidCircular.disabled(
-      {@required Widget icon, String text, double width, double height}) {
+      {required Widget icon, String? text, double? width, double? height}) {
     return SFButtonSolidCircular(
       color: SFAppColor.noble,
       icon: icon,
@@ -56,31 +56,26 @@ class SFButtonSolidCircular extends StatelessWidget {
         child: Material(
           color: color ?? SFAppColor.black,
           child: InkWell(
-            child: Container(
-              width: width,
-              height: height,
-              child: Center(
-                child: icon,
+              child: Container(
+                width: width,
+                height: height,
+                child: Center(
+                  child: icon,
+                ),
               ),
-            ),
-            onTap: onTap != null
-                ? () {
-                    onTap();
-                  }
-                : null,
-          ),
+              onTap: onTap),
         ),
       ),
     ];
 
-    if (text != null && text.isNotEmpty) {
+    if (text != null && text!.isNotEmpty) {
       _children.addAll([
         SFContentSpace.vertical8(),
         SizedBox(
           width: 70,
           child: SFAppText.black14Normal(
             textAlign: TextAlign.center,
-            text: text,
+            text: text!,
             maxLines: 2,
           ),
         ),

@@ -7,14 +7,14 @@ class SFTextButton extends StatelessWidget {
   final String text;
   final TextStyle style;
   final double horizontalPadding;
-  final double height;
+  final double? height;
   final bool isHorizontalExpanded;
 
   SFTextButton({
     this.enable = true,
-    @required this.onTap,
-    @required this.text,
-    @required this.style,
+    required this.onTap,
+    required this.text,
+    required this.style,
     this.horizontalPadding = 4,
     this.height,
     this.isHorizontalExpanded = false,

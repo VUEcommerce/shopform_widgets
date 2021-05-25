@@ -6,19 +6,18 @@ import 'package:flutter_svg/svg.dart';
 ///please extend this [SFBaseIconWidget] class if you wanna create a icon class like this [AccountProfileIcon]
 ///thank you guys
 abstract class SFBaseIconWidget extends StatelessWidget {
-  final double height;
-  final double width;
-  final Color color;
+  final double? height;
+  final double? width;
+  final Color? color;
   final String icon;
-  final String semanticLabel;
+  final String? semanticLabel;
 
   const SFBaseIconWidget(
       {this.height,
       this.width,
       this.color,
-      @required this.icon,
-      this.semanticLabel})
-      : assert(icon != null, 'please set your [icon]');
+      required this.icon,
+      this.semanticLabel});
 
   @override
   Widget build(BuildContext context) {

@@ -3,16 +3,16 @@ import 'package:shopform_widgets/utils/sf_app_color.dart';
 
 class SFTextChip extends StatelessWidget {
   final String text;
-  final EdgeInsets padding;
-  final Color backgroundColor;
-  final Color textColor;
+  final EdgeInsets? padding;
+  final Color? backgroundColor;
+  final Color? textColor;
   final Color disabledBackgroundColor;
   final Color disabledTextColor;
   final bool enable;
 
   const SFTextChip(
-      {Key key,
-      this.text,
+      {Key? key,
+      required this.text,
       this.padding,
       this.backgroundColor,
       this.textColor,

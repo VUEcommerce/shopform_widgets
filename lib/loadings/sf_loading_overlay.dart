@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:shopform_widgets/text/sf_app_text.dart';
 import 'package:shopform_widgets/mixins/sf_theme_mixin.dart';
+import 'package:shopform_widgets/text/sf_app_text.dart';
 
 class SFLoadingOverlay extends StatefulWidget {
   final int animateDuration;
 
   /// Display widget at the top (before) of spinner
-  final Widget top;
+  final Widget? top;
 
   /// Display widget at the bottom (after) of spinner
-  final Widget bottom;
+  final Widget? bottom;
 
   final bool isLoading;
 
   final double opacity;
 
-  final Color color;
+  final Color? color;
 
   final Color loadingCircleColor;
 
@@ -27,12 +27,12 @@ class SFLoadingOverlay extends StatefulWidget {
   final Widget child;
 
   const SFLoadingOverlay({
-    Key key,
+    Key? key,
     this.animateDuration = 250,
     this.top,
     this.bottom,
-    @required this.child,
-    @required this.isLoading,
+    required this.child,
+    this.isLoading = false,
     this.opacity = 0.5,
     this.progressIndicator = const CircularProgressIndicator(),
     this.color,
@@ -46,7 +46,7 @@ class SFLoadingOverlay extends StatefulWidget {
   factory SFLoadingOverlay.switchUserType({
     String message = '',
     bool isLoading = false,
-    @required Widget child,
+    required Widget child,
   }) {
     return SFLoadingOverlay(
       bottom: SFAppText.white24Normal(
@@ -64,25 +64,24 @@ class SFLoadingOverlay extends StatefulWidget {
 
 class _SFLoadingOverlayState extends State<SFLoadingOverlay>
     with SFThemeMixin, SingleTickerProviderStateMixin {
-  AnimationController _spinKitController;
-  AnimationController _controller;
-  Animation<double> _animation;
-  bool _overlayVisible;
+  AnimationController? _spinKitController;
+  late AnimationController _controller;
+  late Animation<double> _animation;
+  bool _overlayVisible = false;
 
   @override
   void initState() {
     super.initState();
-    _overlayVisible = false;
     _controller = AnimationController(
         vsync: this, duration: Duration(milliseconds: widget.animateDuration));
     _animation = Tween(begin: 0.0, end: 1.0).animate(_controller);
     _animation.addStatusListener((status) {
-      status == AnimationStatus.forward
-          ? setState(() => {_overlayVisible = true})
-          : null;
-      status == AnimationStatus.dismissed
-          ? setState(() => {_overlayVisible = false})
-          : null;
+      if (status == AnimationStatus.forward) {
+        return setState(() => {_overlayVisible = true});
+      }
+      if (status == AnimationStatus.dismissed) {
+        return setState(() => {_overlayVisible = false});
+      }
     });
     if (widget.isLoading) {
       _controller.forward();
@@ -104,7 +103,7 @@ class _SFLoadingOverlayState extends State<SFLoadingOverlay>
   @override
   void dispose() {
     _spinKitController?.dispose();
-    _controller?.dispose();
+    _controller.dispose();
     super.dispose();
   }
 

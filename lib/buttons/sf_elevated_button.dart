@@ -10,14 +10,14 @@ class SFElevatedButton extends StatelessWidget {
   final VoidCallback onTap;
   final bool isExpanded;
   final Color backgroundColor;
-  final Color strokeColor;
+  final Color? strokeColor;
 
   SFElevatedButton({
     this.height = 46,
-    @required this.text,
-    @required this.style,
+    required this.text,
+    required this.style,
     this.horizontalPadding = 8,
-    @required this.onTap,
+    required this.onTap,
     this.isExpanded = false,
     this.borderRadius = const BorderRadius.all(Radius.circular(6)),
     this.backgroundColor = SFAppColor.tulipTreeGold,
@@ -41,7 +41,7 @@ class SFElevatedButton extends StatelessWidget {
           height: height,
           padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
           decoration: BoxDecoration(
-            border: isStroke ? Border.all(color: strokeColor) : null,
+            border: isStroke ? Border.all(color: strokeColor!) : null,
             borderRadius: borderRadius,
             color: backgroundColor,
           ),

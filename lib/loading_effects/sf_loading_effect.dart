@@ -7,7 +7,7 @@ import 'package:shopform_widgets/utils/sf_app_color.dart';
 class SFLoadingEffect extends StatelessWidget {
   final Widget child;
 
-  SFLoadingEffect({@required this.child}) : assert(child != null);
+  SFLoadingEffect({required this.child});
 
   factory SFLoadingEffect.consumerProductItem() {
     final child = Container(
@@ -30,14 +30,15 @@ class SFLoadingEffect extends StatelessWidget {
     );
   }
 
-  factory SFLoadingEffect.productItemInDetailList({@required double screenWidth}) {
-    final itemWidth = (screenWidth - 48)/2;
+  factory SFLoadingEffect.productItemInDetailList(
+      {required double screenWidth}) {
+    final itemWidth = (screenWidth - 48) / 2;
     final child = Container(
       width: itemWidth,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          LoadingItem(height: itemWidth/SFProductConstants.imageRatio),
+          LoadingItem(height: itemWidth / SFProductConstants.imageRatio),
           SFContentSpace.vertical12(),
           LoadingItem(height: 14),
           SFContentSpace.vertical2(),
@@ -636,8 +637,8 @@ class SFLoadingEffect extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: Colors.grey[300],
-      highlightColor: Colors.grey[100],
+      baseColor: Colors.grey[300]!,
+      highlightColor: Colors.grey[100]!,
       child: child,
     );
   }
@@ -645,10 +646,10 @@ class SFLoadingEffect extends StatelessWidget {
 
 /// To emulating a real widget
 class LoadingItem extends StatelessWidget {
-  final double height;
-  final double width;
+  final double? height;
+  final double? width;
 
-  const LoadingItem({Key key, this.height, this.width}) : super(key: key);
+  const LoadingItem({Key? key, this.height, this.width}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

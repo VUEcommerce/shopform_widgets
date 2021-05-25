@@ -12,9 +12,9 @@ class SFOutlineButton extends StatelessWidget {
 
   SFOutlineButton({
     this.height = 46,
-    @required this.text,
+    required this.text,
     this.horizontalPadding = 8,
-    @required this.onTap,
+    required this.onTap,
     this.isExpanded = false,
     this.borderRadius = const BorderRadius.all(Radius.circular(8)),
   });

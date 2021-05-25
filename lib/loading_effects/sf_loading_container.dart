@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shopform_widgets/loading_effects/sf_loading_effect.dart';
 
 class SFLoadingContainer extends StatelessWidget {
-  final double height;
-  final double width;
+  final double? height;
+  final double? width;
   final double radius;
 
   const SFLoadingContainer({

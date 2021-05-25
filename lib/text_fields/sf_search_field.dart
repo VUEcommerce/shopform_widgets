@@ -4,18 +4,18 @@ import 'package:shopform_widgets/utils/sf_app_color.dart';
 import 'package:shopform_widgets/utils/sf_app_text_style.dart';
 
 class SFSearchField extends StatefulWidget {
-  final FocusNode focusNode;
-  final TextEditingController controller;
-  final ValueChanged<String> onSubmitted;
-  final VoidCallback onCancel;
-  final VoidCallback onTap;
-  final EdgeInsets margin;
-  final String hint;
-  final Color cancelColor;
-  final Widget suffixIcon;
+  final FocusNode? focusNode;
+  final TextEditingController? controller;
+  final ValueChanged<String>? onSubmitted;
+  final VoidCallback? onCancel;
+  final VoidCallback? onTap;
+  final EdgeInsets? margin;
+  final String? hint;
+  final Color? cancelColor;
+  final Widget? suffixIcon;
   final bool autoFocus;
   final bool enable;
-  final ValueChanged<bool> onFocusChanged;
+  final ValueChanged<bool>? onFocusChanged;
   final bool alwaysHideCancel;
   final bool permanentCancelButton;
   final String cancelText;
@@ -35,7 +35,7 @@ class SFSearchField extends StatefulWidget {
     this.enable = true,
     this.alwaysHideCancel = false,
     this.permanentCancelButton = false,
-    @required this.cancelText,
+    required this.cancelText,
   });
 
   @override
@@ -44,9 +44,9 @@ class SFSearchField extends StatefulWidget {
 
 class _SFSearchFieldState extends State<SFSearchField>
     with SingleTickerProviderStateMixin {
-  FocusNode _internalFocus;
-  TextEditingController _internalTfController;
-  AnimationController _animController;
+  late FocusNode _internalFocus;
+  late TextEditingController _internalTfController;
+  late AnimationController _animController;
 
   @override
   void initState() {
@@ -74,7 +74,7 @@ class _SFSearchFieldState extends State<SFSearchField>
     if (widget.focusNode == null) {
       _internalFocus.dispose();
     }
-    if (_internalTfController == null) {
+    if (widget.controller == null) {
       _internalTfController.dispose();
     }
     _animController.dispose();
@@ -140,7 +140,9 @@ class _SFSearchFieldState extends State<SFSearchField>
             ],
           ),
         ),
-        widget.alwaysHideCancel ? Container() : buildCancelButtonBaseOnTextFieldState(),
+        widget.alwaysHideCancel
+            ? Container()
+            : buildCancelButtonBaseOnTextFieldState(),
       ]),
     );
   }
@@ -162,17 +164,16 @@ class _SFSearchFieldState extends State<SFSearchField>
             child: Stack(
               alignment: Alignment.center,
               children: [
-                if (_animController.isCompleted)
-                  buildCancelButton(context),
+                if (_animController.isCompleted) buildCancelButton(context),
                 if (_animController.isDismissed)
                   widget.suffixIcon != null
                       ? SizedBox(
-                    width: 40,
-                    height: 40 * (1 - _animController.value),
-                    child: Center(
-                      child: widget.suffixIcon,
-                    ),
-                  )
+                          width: 40,
+                          height: 40 * (1 - _animController.value),
+                          child: Center(
+                            child: widget.suffixIcon,
+                          ),
+                        )
                       : Container()
               ],
             ),

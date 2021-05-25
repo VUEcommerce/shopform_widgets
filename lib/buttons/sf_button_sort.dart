@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:shopform_widgets/constants/sf_content_spacer_constants.dart';
 import 'package:shopform_widgets/icons/sf_sort_by_icon.dart';
 import 'package:shopform_widgets/utils/sf_app_text_style.dart';
-import 'package:shopform_widgets/constants/sf_content_spacer_constants.dart';
 
 class SFButtonSort extends StatelessWidget {
   final VoidCallback onTap;
   final String label;
-  final double height;
+  final double? height;
 
   const SFButtonSort({
-    Key key,
-    @required this.onTap,
-    @required this.label,
+    Key? key,
+    required this.onTap,
+    required this.label,
     this.height,
-  })  : assert(onTap != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

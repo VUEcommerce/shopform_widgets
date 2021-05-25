@@ -11,10 +11,10 @@ class SFFollowButton extends StatelessWidget {
   final String textFollow;
 
   SFFollowButton({
-    @required this.onTap,
-    @required this.type,
-    @required this.textFollowing,
-    @required this.textFollow,
+    required this.onTap,
+    required this.type,
+    required this.textFollowing,
+    required this.textFollow,
     this.disableBorder = false,
   });
 

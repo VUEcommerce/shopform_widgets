@@ -6,11 +6,10 @@ class SFFilterSelectedChip extends StatelessWidget {
   final VoidCallback onTapCancel;
 
   const SFFilterSelectedChip({
-    Key key,
-    @required this.textChoice,
-    @required this.onTapCancel,
-  })  : assert(onTapCancel != null),
-        super(key: key);
+    Key? key,
+    required this.textChoice,
+    required this.onTapCancel,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:shopform_widgets/content_space/sf_content_space.dart';
 import 'package:shopform_widgets/constants/sf_icon_name_constants.dart';
-import 'package:shopform_widgets/text/sf_app_text.dart';
+import 'package:shopform_widgets/content_space/sf_content_space.dart';
 import 'package:shopform_widgets/images/sf_cached_network_circle_image.dart';
+import 'package:shopform_widgets/text/sf_app_text.dart';
 import 'package:shopform_widgets/utils/sf_app_color.dart';
 
 class SFBrandLogoWidget extends StatelessWidget {
-  final String logo;
-  final Function onTap;
-  final String name;
+  final String? logo;
+  final VoidCallback? onTap;
+  final String? name;
 
-  SFBrandLogoWidget({Key key, this.logo, this.onTap, this.name})
+  SFBrandLogoWidget({Key? key, this.logo, this.onTap, this.name})
       : super(key: key);
 
   Widget get _errorPlaceholder => ClipOval(

@@ -6,20 +6,20 @@ import 'package:shopform_widgets/utils/sf_app_color.dart';
 
 class SFCachedNetworkCircleImage extends StatelessWidget {
   final String imageUrl;
-  final Widget placeholder;
-  final Widget errorWidget;
-  final double width;
-  final double height;
-  final BoxFit fit;
+  final Widget? placeholder;
+  final Widget? errorWidget;
+  final double? width;
+  final double? height;
+  final BoxFit? fit;
   final AlignmentGeometry alignment;
   final ImageRepeat repeat;
-  final Color color;
-  final BlendMode colorBlendMode;
+  final Color? color;
+  final BlendMode? colorBlendMode;
   final FilterQuality filterQuality;
 
   SFCachedNetworkCircleImage({
-    Key key,
-    @required this.imageUrl,
+    Key? key,
+    required this.imageUrl,
     this.placeholder,
     this.errorWidget,
     this.width,
@@ -32,14 +32,14 @@ class SFCachedNetworkCircleImage extends StatelessWidget {
     this.colorBlendMode,
   }) : super(key: key);
 
-  int get getCacheHeight {
+  int? get getCacheHeight {
     if (height == null) return null;
-    return (height * 2).toInt();
+    return (height! * 2).toInt();
   }
 
-  int get getCacheWidth {
+  int? get getCacheWidth {
     if (width == null) return null;
-    return (width * 2).toInt();
+    return (width! * 2).toInt();
   }
 
   @override

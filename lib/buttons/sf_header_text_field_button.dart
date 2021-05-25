@@ -5,12 +5,12 @@ import 'package:shopform_widgets/utils/sf_app_color.dart';
 import 'package:shopform_widgets/utils/sf_app_text_style.dart';
 
 class SFHeaderTextFieldButton extends StatelessWidget {
-  final String header;
-  final String content;
-  final String hint;
-  final String errorMessage;
+  final String? header;
+  final String? content;
+  final String? hint;
+  final String? errorMessage;
   final bool showError;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   SFHeaderTextFieldButton({
     this.header,
@@ -28,7 +28,7 @@ class SFHeaderTextFieldButton extends StatelessWidget {
       children: <Widget>[
         if (header != null)
           Text(
-            header,
+            header!,
             style: SFAppTextStyle.of(
               context,
               fontSize: 14,
@@ -59,7 +59,7 @@ class SFHeaderTextFieldButton extends StatelessWidget {
         if (showError) ...[
           const SizedBox(height: 4),
           Text(
-            errorMessage,
+            errorMessage ?? '',
             style: SFAppTextStyle.of(
               context,
               fontWeight: FontWeight.w400,
@@ -85,7 +85,7 @@ class SFHeaderTextFieldButton extends StatelessWidget {
       );
     }
     return Text(
-      content,
+      content!,
       style: SFAppTextStyle.of(
         context,
         fontSize: 12,

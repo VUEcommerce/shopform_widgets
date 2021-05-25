@@ -4,16 +4,16 @@ import 'package:shopform_widgets/text/sf_app_text.dart';
 import 'package:shopform_widgets/utils/sf_app_color.dart';
 
 class SFPartlyChip extends StatefulWidget {
-  final List<PartlyChipModel> models;
-  final BorderRadius borderRadius;
-  final Color borderColor;
-  final ValueChanged<PartlyChipModel> onChange;
+  final List<PartlyChipModel>? models;
+  final BorderRadius? borderRadius;
+  final Color? borderColor;
+  final ValueChanged<PartlyChipModel>? onChange;
 
   ///make this widget able to select between items
   final bool switchable;
 
   const SFPartlyChip({
-    Key key,
+    Key? key,
     this.models,
     this.borderRadius,
     this.borderColor,
@@ -33,7 +33,7 @@ class _SFPartlyChipState extends State<SFPartlyChip> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.models == null || widget.models.isEmpty) {
+    if (widget.models == null || widget.models!.isEmpty) {
       return Container();
     }
     return Row(
@@ -56,8 +56,8 @@ class _SFPartlyChipState extends State<SFPartlyChip> {
     );
   }
 
-  void _onChangeValue({PartlyChipModel model}) {
-    widget.models.forEach((item) {
+  void _onChangeValue({required PartlyChipModel model}) {
+    widget.models!.forEach((item) {
       if (model == item) {
         item.selected = true;
         return;
@@ -67,13 +67,13 @@ class _SFPartlyChipState extends State<SFPartlyChip> {
   }
 
   Widget _buildItem(
-      {PartlyChipModel model,
-      VoidCallback onTap,
+      {required PartlyChipModel model,
+      required VoidCallback onTap,
       bool showRightBorder = false}) {
     return GestureDetector(
       onTap: () {
-        if (widget.switchable ?? false) {
-          onTap?.call();
+        if (widget.switchable) {
+          onTap.call();
         }
       },
       child: Container(
@@ -97,9 +97,9 @@ class _SFPartlyChipState extends State<SFPartlyChip> {
   }
 
   List<Widget> _buildChildren() {
-    final length = widget.models.length;
-    final items = widget.models.map((e) {
-      final index = widget.models.indexOf(e);
+    final length = widget.models!.length;
+    final items = widget.models!.map((e) {
+      final index = widget.models!.indexOf(e);
       return _buildItem(
           model: e,
           onTap: () {
@@ -108,7 +108,7 @@ class _SFPartlyChipState extends State<SFPartlyChip> {
             widget.onChange?.call(e);
           },
           showRightBorder: (length == 2 && index == 0) ||
-              (index > 0 && index < widget.models.length - 1));
+              (index > 0 && index < widget.models!.length - 1));
     }).toList();
     return items;
   }
@@ -117,10 +117,10 @@ class _SFPartlyChipState extends State<SFPartlyChip> {
 // ignore: must_be_immutable
 class PartlyChipModel<T> extends Equatable {
   ///[title] for display
-  final String title;
+  final String? title;
 
   ///[value] is unique, to be replaced by title
-  final T value;
+  final T? value;
 
   ///this model is selected or not
   ///default is false
@@ -130,5 +130,5 @@ class PartlyChipModel<T> extends Equatable {
   PartlyChipModel({this.title, this.value, this.selected = false});
 
   @override
-  List<Object> get props => [title, value, selected];
+  List<Object?> get props => [title, value, selected];
 }

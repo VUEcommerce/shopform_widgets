@@ -18,16 +18,16 @@ class SFButton extends StatelessWidget {
   /// Default is IconPosition.left
   final SFIconPosition iconPosition;
 
-  final double iconSize;
+  final double? iconSize;
 
   /// This is a builder class for a nice button
   ///
   /// Icon can be used to define the button design
   /// User can use Flutter built-in Icons or font-awesome flutter's Icon  final bool mini;
-  final IconData icon;
+  final IconData? icon;
 
   /// specify the color of the icon
-  final Color iconColor;
+  final Color? iconColor;
 
   /// radius can be used to specify the button border radius
   final double radius;
@@ -44,7 +44,7 @@ class SFButton extends StatelessWidget {
   final Color textColor;
 
   /// Style of the button's text
-  final TextStyle textStyle;
+  final TextStyle? textStyle;
 
   /// User can define the background color of the button
   final Color background;
@@ -52,19 +52,19 @@ class SFButton extends StatelessWidget {
   final Color borderColor;
 
   /// User can define the width of the button
-  final double width;
+  final double? width;
 
   /// User can define the height of the button
   final double height;
 
   /// Here user can define what to do when the button is clicked or pressed
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   /// This is the elevation of the button
   final double elevation;
 
   /// This is the padding of the button
-  final EdgeInsets padding;
+  final EdgeInsets? padding;
 
   /// `mini` tag is used to switch from a full-width button to a small button
   final bool mini;
@@ -77,7 +77,7 @@ class SFButton extends StatelessWidget {
   final bool isTransparent;
 
   const SFButton({
-    Key key,
+    Key? key,
     this.enabled = true,
     this.iconPosition = SFIconPosition.left,
     this.mini = false,
@@ -87,15 +87,15 @@ class SFButton extends StatelessWidget {
     this.textColor = Colors.white,
     this.isTransparent = false,
     this.textStyle,
-    this.iconColor = Colors.white,
+    this.iconColor,
     this.width,
     this.height = 46.0,
     this.padding = const EdgeInsets.all(12.0),
     this.onPressed,
-    @required this.text,
-    @required this.background,
+    required this.text,
+    required this.background,
     this.gradientColors = const [],
-    this.gradientDisabledColors,
+    required this.gradientDisabledColors,
     this.icon,
     this.fontSize = 23.0,
     this.borderColor = Colors.transparent,
@@ -103,33 +103,33 @@ class SFButton extends StatelessWidget {
   }) : super(key: key);
 
   factory SFButton.accent({
-    Key key,
-    BuildContext context,
+    Key? key,
+    required BuildContext context,
     bool enabled = true,
     double elevation = 0,
-    @required String text,
-    VoidCallback onPressed,
-    IconData icon,
-    double iconSize,
+    required String text,
+    VoidCallback? onPressed,
+    IconData? icon,
+    double? iconSize,
     double radius = SFButtonConstants.radius,
-    Colors textColor,
-    Color backgroundColor,
-    EdgeInsets padding,
-    double width,
+    Color? textColor,
+    Color? backgroundColor,
+    EdgeInsets? padding,
+    double? width,
     double height = 46.0,
     bool isOutlined = false,
-    TextStyle textStyle,
+    TextStyle? textStyle,
   }) {
     final _theme = Theme.of(context);
     final _accentColor = _theme.accentColor;
-    final _disabledColor = _theme.disabledColor;
     final _borderColor = backgroundColor;
 
-    final _defaultTextStyle = Theme.of(context).accentTextTheme.button.copyWith(
-          fontSize: 14.0,
-          fontWeight: FontWeight.w600,
-          color: textColor ?? Colors.white,
-        );
+    final _defaultTextStyle =
+        Theme.of(context).accentTextTheme.button?.copyWith(
+              fontSize: 14.0,
+              fontWeight: FontWeight.w600,
+              color: textColor ?? Colors.white,
+            );
 
     return SFButton(
       enabled: enabled,
@@ -159,30 +159,30 @@ class SFButton extends StatelessWidget {
   }
 
   factory SFButton.primary(
-      {Key key,
-      @required BuildContext context,
+      {Key? key,
+      required BuildContext context,
       bool enabled = true,
       double elevation = 0,
-      @required String text,
-      VoidCallback onPressed,
-      EdgeInsets padding,
+      required String text,
+      VoidCallback? onPressed,
+      EdgeInsets? padding,
       bool isTransparent = false,
       double radius = SFButtonConstants.radius,
-      Colors textColor,
-      double width,
+      Color? textColor,
+      double? width,
       double height = 46.0,
       bool isOutlined = false,
-      TextStyle textStyle,
-      Color borderColor}) {
+      TextStyle? textStyle,
+      Color? borderColor}) {
     final _theme = Theme.of(context);
     final _primaryColor = _theme.primaryColor;
     final _disabledColor = _theme.disabledColor;
 
     final _defaultTextStyle =
-        Theme.of(context).primaryTextTheme.button.copyWith(
+        Theme.of(context).primaryTextTheme.button?.copyWith(
               fontSize: 14.0,
               fontWeight: FontWeight.w600,
-              color: textColor ?? isOutlined ? _primaryColor : Colors.white,
+              color: textColor ?? (isOutlined ? _primaryColor : Colors.white),
             );
 
     return SFButton(

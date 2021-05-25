@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:shopform_widgets/utils/sf_app_color.dart';
 
 class SFHorizontalLine extends StatelessWidget {
-  final double height;
-  final Color color;
+  final double? height;
+  final Color? color;
 
-  const SFHorizontalLine({Key key, this.height, this.color}) : super(key: key);
+  const SFHorizontalLine({Key? key, this.height, this.color}) : super(key: key);
 
   factory SFHorizontalLine.height8() {
     return SFHorizontalLine(

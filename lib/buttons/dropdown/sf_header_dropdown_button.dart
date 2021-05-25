@@ -5,31 +5,28 @@ import 'package:shopform_widgets/utils/sf_app_color.dart';
 import 'package:shopform_widgets/utils/sf_app_text_style.dart';
 
 class SFHeaderDropDownButton extends StatefulWidget {
-  final String title;
-  final String hint;
+  final String? title;
+  final String? hint;
   final List<Object> items;
-  final ValueChanged<Object> onChanged;
-  final Object selectedItem;
+  final ValueChanged<Object>? onChanged;
+  final Object? selectedItem;
 
   SFHeaderDropDownButton({
     this.title,
     this.hint,
-    @required this.items,
+    required this.items,
     this.selectedItem,
     this.onChanged,
   });
 
   @override
-  _SFHeaderDropDownButtonState createState() => _SFHeaderDropDownButtonState(
-        selectedItem: selectedItem,
-      );
+  _SFHeaderDropDownButtonState createState() => _SFHeaderDropDownButtonState();
 }
 
 class _SFHeaderDropDownButtonState extends State<SFHeaderDropDownButton> {
-  Object selectedItem;
-  bool get enable => widget.items.isNotEmpty;
+  Object? selectedItem;
 
-  _SFHeaderDropDownButtonState({@required this.selectedItem});
+  bool get enable => widget.items.isNotEmpty;
 
   List<SFDropdownMenuItem<Object>> get dropdownMenuItems {
     return widget.items.map((item) {
@@ -44,6 +41,12 @@ class _SFHeaderDropDownButtonState extends State<SFHeaderDropDownButton> {
         ),
       );
     }).toList();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    selectedItem = widget.selectedItem;
   }
 
   @override
@@ -65,10 +68,10 @@ class _SFHeaderDropDownButtonState extends State<SFHeaderDropDownButton> {
       children: <Widget>[
         if (widget.title != null)
           SFAppText(
-            widget.title,
+            widget.title!,
             style: enable
                 ? titleTextStyle
-                : titleTextStyle.copyWith(color: SFAppColor.greyDark),
+                : titleTextStyle?.copyWith(color: SFAppColor.greyDark),
           ),
         SFDropdownButton(
           underline: Container(
@@ -81,7 +84,7 @@ class _SFHeaderDropDownButtonState extends State<SFHeaderDropDownButton> {
                   children: <Widget>[
                     SizedBox(width: 4),
                     Text(
-                      widget.hint,
+                      widget.hint!,
                       style: SFAppTextStyle.of(
                         context,
                         color: SFAppColor.greyDark,
@@ -106,10 +109,12 @@ class _SFHeaderDropDownButtonState extends State<SFHeaderDropDownButton> {
           items: dropdownMenuItems,
           onChanged: enable
               ? (item) {
-                  setState(() {
-                    selectedItem = item;
-                  });
-                  widget.onChanged?.call(item);
+                  if (item != null) {
+                    setState(() {
+                      selectedItem = item;
+                    });
+                    widget.onChanged?.call(item);
+                  }
                 }
               : null,
         ),

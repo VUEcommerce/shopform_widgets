@@ -5,7 +5,7 @@ class SFCircularProgressIndicator extends StatelessWidget {
   final double strokeWidth;
 
   const SFCircularProgressIndicator(
-      {Key key, this.size = 24, this.strokeWidth = 2})
+      {Key? key, this.size = 24, this.strokeWidth = 2})
       : super(key: key);
   @override
   Widget build(BuildContext context) {

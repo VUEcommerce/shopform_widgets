@@ -60,19 +60,26 @@ class SFContentSpace extends StatelessWidget {
 
   factory SFContentSpace.vertical18() => const SFContentSpace._internal(height: 18);
 
-  factory SFContentSpace.vertical22() => const SFContentSpace._internal(height: 22);
+  factory SFContentSpace.vertical22() =>
+      const SFContentSpace._internal(height: 22);
 
-  factory SFContentSpace.vertical24() => const SFContentSpace._internal(height: 24);
+  factory SFContentSpace.vertical24() =>
+      const SFContentSpace._internal(height: 24);
 
-  factory SFContentSpace.vertical26() => const SFContentSpace._internal(height: 26);
+  factory SFContentSpace.vertical26() =>
+      const SFContentSpace._internal(height: 26);
 
-  factory SFContentSpace.vertical28() => const SFContentSpace._internal(height: 28);
+  factory SFContentSpace.vertical28() =>
+      const SFContentSpace._internal(height: 28);
 
-  factory SFContentSpace.vertical32() => const SFContentSpace._internal(height: 32);
+  factory SFContentSpace.vertical32() =>
+      const SFContentSpace._internal(height: 32);
 
-  factory SFContentSpace.vertical44() => const SFContentSpace._internal(height: 44);
+  factory SFContentSpace.vertical44() =>
+      const SFContentSpace._internal(height: 44);
 
-  factory SFContentSpace.vertical40() => const SFContentSpace._internal(height: 40);
+  factory SFContentSpace.vertical40() =>
+      const SFContentSpace._internal(height: 40);
 
   factory SFContentSpace.vertical100() =>
       const SFContentSpace._internal(height: 100);
@@ -80,16 +87,20 @@ class SFContentSpace extends StatelessWidget {
   factory SFContentSpace.vertical136() =>
       const SFContentSpace._internal(height: 136);
 
-  factory SFContentSpace.vertical36() => const SFContentSpace._internal(height: 36);
+  factory SFContentSpace.vertical36() =>
+      const SFContentSpace._internal(height: 36);
 
-  factory SFContentSpace.vertical52() => const SFContentSpace._internal(height: 52);
+  factory SFContentSpace.vertical52() =>
+      const SFContentSpace._internal(height: 52);
 
-  factory SFContentSpace.vertical80() => const SFContentSpace._internal(height: 80);
+  factory SFContentSpace.vertical80() =>
+      const SFContentSpace._internal(height: 80);
 
-  factory SFContentSpace.vertical76() => const SFContentSpace._internal(height: 76);
+  factory SFContentSpace.vertical76() =>
+      const SFContentSpace._internal(height: 76);
 
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
 
   const SFContentSpace._internal({this.width, this.height});
 

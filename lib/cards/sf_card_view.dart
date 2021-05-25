@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 class SFCardView extends StatelessWidget {
-  final Color backgroundColor;
-  final BorderRadius borderRadius;
-  final Widget child;
-  final EdgeInsets padding;
-  final Color shadowColor;
+  final Color? backgroundColor;
+  final BorderRadius? borderRadius;
+  final Widget? child;
+  final EdgeInsets? padding;
+  final Color? shadowColor;
   final defaultRadius = 4.0;
 
   SFCardView({
-    this.padding = EdgeInsets.zero,
-    @required this.child,
+    this.padding,
+    required this.child,
     this.backgroundColor,
     this.borderRadius,
     this.shadowColor,

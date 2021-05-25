@@ -5,9 +5,9 @@ typedef SFOnGetRatioImage = Function(double ratio);
 
 mixin SFGettingRatioNetworkImageHelper<T extends SFBaseCachedNetworkImage>
     on State<T> {
-  ImageProvider image;
-  ImageStream imageStream;
-  ImageStreamListener imageStreamListener;
+  late ImageProvider image;
+  ImageStream? imageStream;
+  late ImageStreamListener imageStreamListener;
 
   bool get _needGetRatio => widget.onGetRatioImage != null;
 
@@ -16,7 +16,7 @@ mixin SFGettingRatioNetworkImageHelper<T extends SFBaseCachedNetworkImage>
     super.initState();
     if (_needGetRatio) {
       imageStreamListener = ImageStreamListener((info, _) {
-        widget.onGetRatioImage(info.image.width / info.image.height);
+        widget.onGetRatioImage!.call(info.image.width / info.image.height);
       });
     }
 
@@ -54,7 +54,7 @@ mixin SFGettingRatioNetworkImageHelper<T extends SFBaseCachedNetworkImage>
   }
 
   @override
-  void didUpdateWidget(SFBaseCachedNetworkImage oldWidget) {
+  void didUpdateWidget(oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.imageUrl != widget.imageUrl) {
       _getImage();

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shopform_widgets/loadings/sf_loading_overlay.dart';
 
 class SFLoadingDialog extends StatefulWidget {
-  const SFLoadingDialog({Key key}) : super(key: key);
+  const SFLoadingDialog({Key? key}) : super(key: key);
 
   @override
   _SFLoadingDialogState createState() => _SFLoadingDialogState();

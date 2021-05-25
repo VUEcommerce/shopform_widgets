@@ -5,7 +5,7 @@ class SFCircularDeleteIconButton extends StatelessWidget {
   final VoidCallback onTap;
 
   SFCircularDeleteIconButton({
-    @required this.onTap,
+    required this.onTap,
   });
 
   @override

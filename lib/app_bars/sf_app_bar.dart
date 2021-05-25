@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:shopform_widgets/utils/sf_app_color.dart';
 import 'package:shopform_widgets/text_fields/sf_search_field.dart';
+import 'package:shopform_widgets/utils/sf_app_color.dart';
 
 class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final AppBar appBar;
+  final AppBar? appBar;
   final bool isTransparent;
   final bool isEmpty;
   static const double _defaultElevation = 4.0;
 
   const SFAppBar({
-    Key key,
+    Key? key,
     this.appBar,
     this.isEmpty = false,
     this.isTransparent = false,
@@ -34,10 +34,10 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Material(
           color: isTransparent
               ? Colors.transparent
-              : appBarTheme?.color ??
-              themeData.primaryColor, // appBarTheme?.color ??
+              : appBarTheme.color ??
+                  themeData.primaryColor, // appBarTheme?.color ??
           elevation:
-          isTransparent ? 0.0 : appBarTheme?.elevation ?? _defaultElevation,
+              isTransparent ? 0.0 : appBarTheme.elevation ?? _defaultElevation,
           child: Semantics(
             explicitChildNodes: true,
             child: isEmpty || appBar == null ? Container() : appBar,
@@ -51,18 +51,20 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => isEmpty
       ? Size(0.0, 0.0)
       : Size.fromHeight((appBar != null ? kToolbarHeight : 0.0) +
-      (appBar != null ? appBar.bottom?.preferredSize?.height ?? 0.0 : 0.0));
+          (appBar != null
+              ? (appBar!.bottom?.preferredSize)?.height ?? 0.0
+              : 0.0));
 
   factory SFAppBar.empty({bool isTransparent = false}) {
     return SFAppBar(isEmpty: true, isTransparent: isTransparent);
   }
 
   factory SFAppBar.loading({
-    List<Widget> actions,
-    bool centerTitle,
-    Text title,
-    bool isTransparent,
-    Widget leading,
+    List<Widget>? actions,
+    bool? centerTitle,
+    Text? title,
+    bool isTransparent = false,
+    Widget? leading,
   }) {
     return SFAppBar(
       appBar: AppBar(
@@ -77,14 +79,13 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   factory SFAppBar.primary({
-    List<Widget> actions,
+    List<Widget>? actions,
     bool automaticallyImplyLeading = true,
-    bool centerTitle,
-    String title,
-    double titleFontSize,
-    bool isTransparent,
-    Widget leading,
-    PreferredSizeWidget bottom,
+    bool? centerTitle,
+    String? title,
+    double? titleFontSize,
+    Widget? leading,
+    PreferredSizeWidget? bottom,
   }) {
     return SFAppBar(
       appBar: AppBar(
@@ -94,10 +95,10 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
         leading: leading,
         title: title != null
             ? Text(
-          title,
-          style: TextStyle(
-              fontSize: titleFontSize, fontWeight: FontWeight.bold),
-        )
+                title,
+                style: TextStyle(
+                    fontSize: titleFontSize, fontWeight: FontWeight.bold),
+              )
             : null,
         bottom: bottom,
       ),
@@ -105,28 +106,28 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   factory SFAppBar.withSearchBar({
-    TextStyle hintStyle,
-    @required String hintText,
-    List<Widget> actions,
-    Widget leading,
-    bool automaticallyImplyLeading,
-    Widget suffixIcon,
-    ValueChanged<String> onSubmitted,
-    ValueChanged<bool> onFocusChanged,
-    TextEditingController controller,
+    TextStyle? hintStyle,
+    required String hintText,
+    List<Widget>? actions,
+    Widget? leading,
+    bool automaticallyImplyLeading = false,
+    Widget? suffixIcon,
+    ValueChanged<String>? onSubmitted,
+    ValueChanged<bool>? onFocusChanged,
+    TextEditingController? controller,
     bool autoFocus = false,
     bool enable = true,
     bool alwaysHideCancel = false,
     bool permanentCancelButton = false,
-    VoidCallback onTap,
-    VoidCallback onCancel,
-    @required String cancelText,
+    VoidCallback? onTap,
+    VoidCallback? onCancel,
+    required String cancelText,
   }) {
     return SFAppBar(
       appBar: AppBar(
           key: Key('purchases_app_bar'),
           backgroundColor: Colors.black,
-          automaticallyImplyLeading: automaticallyImplyLeading ?? false,
+          automaticallyImplyLeading: automaticallyImplyLeading,
           titleSpacing: 0,
           title: Container(
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -153,14 +154,13 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   factory SFAppBar.primaryWhite({
-    List<Widget> actions,
+    List<Widget>? actions,
     bool automaticallyImplyLeading = true,
-    bool centerTitle,
-    String title,
-    double titleFontSize,
-    bool isTransparent,
-    Widget leading,
-    PreferredSizeWidget bottom,
+    bool? centerTitle,
+    String? title,
+    double? titleFontSize,
+    Widget? leading,
+    PreferredSizeWidget? bottom,
   }) {
     return SFAppBar(
       appBar: AppBar(
@@ -173,12 +173,12 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
         elevation: 0,
         title: title != null
             ? Text(
-          title,
-          style: TextStyle(
-              fontSize: titleFontSize,
-              fontWeight: FontWeight.bold,
-              color: SFAppColor.black),
-        )
+                title,
+                style: TextStyle(
+                    fontSize: titleFontSize,
+                    fontWeight: FontWeight.bold,
+                    color: SFAppColor.black),
+              )
             : null,
         bottom: bottom,
       ),
@@ -187,14 +187,13 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   factory SFAppBar.primaryTransparent({
-    List<Widget> actions,
+    List<Widget>? actions,
     bool automaticallyImplyLeading = true,
-    bool centerTitle,
-    String title,
-    double titleFontSize,
-    bool isTransparent,
-    Widget leading,
-    PreferredSizeWidget bottom,
+    bool? centerTitle,
+    String? title,
+    double? titleFontSize,
+    Widget? leading,
+    PreferredSizeWidget? bottom,
   }) {
     return SFAppBar(
       appBar: AppBar(
@@ -207,12 +206,12 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
         elevation: 0,
         title: title != null
             ? Text(
-          title,
-          style: TextStyle(
-              fontSize: titleFontSize,
-              fontWeight: FontWeight.bold,
-              color: SFAppColor.black),
-        )
+                title,
+                style: TextStyle(
+                    fontSize: titleFontSize,
+                    fontWeight: FontWeight.bold,
+                    color: SFAppColor.black),
+              )
             : null,
         bottom: bottom,
       ),
@@ -222,14 +221,14 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class VueAppBarAction extends StatelessWidget {
-  factory VueAppBarAction.icon({Widget icon, VoidCallback onTap}) =>
+  factory VueAppBarAction.icon({Widget? icon, VoidCallback? onTap}) =>
       VueAppBarAction(
         child: icon,
         onTap: onTap,
       );
 
-  final Widget child;
-  final VoidCallback onTap;
+  final Widget? child;
+  final VoidCallback? onTap;
 
   VueAppBarAction({this.child, this.onTap});
 

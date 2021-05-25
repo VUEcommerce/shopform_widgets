@@ -4,15 +4,15 @@ import 'package:shopform_widgets/utils/sf_app_color.dart';
 enum SFCheckButtonState { checked, unchecked, halfChecked }
 
 class SFCheckButton extends StatelessWidget {
-  final VoidCallback onTap;
-  SFCheckButtonState checkButtonState;
-  final String tag;
+  final VoidCallback? onTap;
+  SFCheckButtonState? checkButtonState;
+  final String? tag;
   final double paddingWidth;
   final double paddingHeight;
   final double iconSize;
   final bool isChecked;
-  final Color backgroundColor;
-  final Border border;
+  final Color? backgroundColor;
+  final Border? border;
 
   SFCheckButton({
     this.paddingWidth = 18,
@@ -25,7 +25,7 @@ class SFCheckButton extends StatelessWidget {
     this.backgroundColor,
     this.border,
   }) {
-    if (isChecked != null && checkButtonState == null) {
+    if (checkButtonState == null) {
       if (isChecked) {
         checkButtonState = SFCheckButtonState.checked;
       } else {
@@ -86,7 +86,7 @@ class SFCheckButton extends StatelessWidget {
     );
   }
 
-  Border _getBorder() {
+  Border? _getBorder() {
     if (_isCheckedOrHalfChecked) {
       return null;
     }

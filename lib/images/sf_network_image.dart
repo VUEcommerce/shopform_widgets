@@ -3,17 +3,17 @@ import 'package:shopform_widgets/constants/sf_icon_name_constants.dart';
 import 'package:shopform_widgets/images/sf_cached_network_image.dart';
 
 class SFNetworkImage extends StatelessWidget {
-  final String image;
-  final double height;
-  final double width;
-  final Widget placeholder;
-  final Widget errorWidget;
-  final BoxFit fit;
-  final Color backgroundColor;
+  final String? image;
+  final double? height;
+  final double? width;
+  final Widget? placeholder;
+  final Widget? errorWidget;
+  final BoxFit? fit;
+  final Color? backgroundColor;
   final bool round;
 
   const SFNetworkImage(
-      {Key key,
+      {Key? key,
       this.image,
       this.height,
       this.width,

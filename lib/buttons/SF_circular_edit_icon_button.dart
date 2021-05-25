@@ -5,7 +5,7 @@ class SFCircularEditIconButton extends StatelessWidget {
   final VoidCallback onTap;
 
   SFCircularEditIconButton({
-    @required this.onTap,
+    required this.onTap,
   });
 
   @override

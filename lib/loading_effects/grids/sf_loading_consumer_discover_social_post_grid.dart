@@ -11,11 +11,11 @@ class SFLoadingConsumerDiscoverSocialPostGrid extends StatelessWidget {
   final String searchTextFieldHintText;
 
   const SFLoadingConsumerDiscoverSocialPostGrid({
-    Key key,
+    Key? key,
     this.itemWidth,
     this.showSearchBar = true,
-    @required this.cancelText,
-    @required this.searchTextFieldHintText,
+    required this.cancelText,
+    required this.searchTextFieldHintText,
   }) : super(key: key);
 
   @override

@@ -7,12 +7,11 @@ class SFSortSelectedChip extends StatelessWidget {
   final String sortByText;
 
   const SFSortSelectedChip({
-    Key key,
-    @required this.textChoice,
-    @required this.onTapCancel,
-    @required this.sortByText,
-  })  : assert(onTapCancel != null),
-        super(key: key);
+    Key? key,
+    required this.textChoice,
+    required this.onTapCancel,
+    required this.sortByText,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
