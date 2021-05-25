@@ -1,13 +1,12 @@
 name: shopform_widgets
 description: A new Flutter package project.
 version: 0.0.11
-author:
-homepage:
+homepage: 'shopform.sg'
 publish_to: 'none'
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=2.0.0"
+  sdk: ">=2.13.0 <3.0.0"
+  flutter: ">=2.2.0"
 
 
 dependencies:
