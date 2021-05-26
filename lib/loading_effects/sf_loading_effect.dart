@@ -690,6 +690,79 @@ class SFLoadingEffect extends StatelessWidget {
     return SFLoadingEffect(child: child);
   }
 
+  factory SFLoadingEffect.selectProductVariantBottomSheet() {
+    Widget _separator() {
+      return Container(
+        height: 1,
+        color: SFAppColor.dividerGray,
+      );
+    }
+
+    final child = Container(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 12, bottom: 16, left: 16),
+                child: buildContainer(
+                  height: 100,
+                  width: 71,
+                ),
+              ),
+              SFContentSpace.horizontal12(),
+              Spacer()
+            ],
+          ),
+          ...List.generate(2, (index) {
+            return Column(
+              children: [
+                _separator(),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Row(
+                    children: [
+                      Flexible(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            //option name
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              child: buildText(width: 50),
+                            ),
+                            SFContentSpace.vertical8(),
+                            //option chips
+                            Wrap(
+                              spacing: 20,
+                              runSpacing: 20,
+                              children: List.generate(3, (valueIndex) {
+                                return Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    buildContainer(
+                                        width: 70, height: 26, radius: 5),
+                                  ],
+                                );
+                              }),
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            );
+          }).toList(),
+        ],
+      ),
+    );
+    return SFLoadingEffect(child: child);
+  }
+
   static Widget buildText({double width = 100}) {
     return Container(
       width: width,
