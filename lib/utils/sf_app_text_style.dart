@@ -20,4 +20,7 @@ class SFAppTextStyle {
           letterSpacing: letterSpacing,
         );
   }
+
+  static TextStyle get black14Normal =>
+      TextStyle(fontSize: 14, color: Colors.black, fontWeight: FontWeight.w400);
 }
