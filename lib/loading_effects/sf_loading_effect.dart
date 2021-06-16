@@ -99,11 +99,20 @@ class SFLoadingEffect extends StatelessWidget {
   factory SFLoadingEffect.collectionItemInDetailList() {
     final child = Container(
       padding: const EdgeInsets.only(bottom: 24.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4),
+        boxShadow: [
+          BoxShadow(
+              offset: Offset(0, 1),
+              blurRadius: 2,
+              color: Color.fromRGBO(0, 0, 0, 0.25))
+        ],
+      ),
       child: Column(
         children: [
           LoadingItem(height: 168),
           SFContentSpace.vertical2(),
-          LoadingItem(height: 30),
+          LoadingItem(height: 50),
         ],
       ),
     );
