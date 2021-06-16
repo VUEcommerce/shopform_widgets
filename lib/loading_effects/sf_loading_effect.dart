@@ -38,10 +38,12 @@ class SFLoadingEffect extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           LoadingItem(height: itemWidth/SFProductConstants.imageRatio),
-          SFContentSpace.vertical12(),
-          LoadingItem(height: 14),
-          SFContentSpace.vertical2(),
-          LoadingItem(height: 14),
+          SFContentSpace.vertical14(),
+          LoadingItem(height: 12, width: 100, radius: 7,),
+          SFContentSpace.vertical4(),
+          LoadingItem(height: 12, width: double.maxFinite, radius: 7,),
+          SFContentSpace.vertical4(),
+          LoadingItem(height: 12, width: 60, radius: 7,),
         ],
       ),
     );
@@ -802,11 +804,15 @@ class SFLoadingEffect extends StatelessWidget {
 class LoadingItem extends StatelessWidget {
   final double height;
   final double width;
+  final double radius;
 
-  const LoadingItem({Key key, this.height, this.width}) : super(key: key);
+  const LoadingItem({Key key, this.height, this.width, this.radius = 0}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(color: Colors.white, height: height, width: width);
+    return Container(decoration: BoxDecoration(
+     color: Colors.white,
+      borderRadius: BorderRadius.circular(radius)
+    ), height: height, width: width);
   }
 }
