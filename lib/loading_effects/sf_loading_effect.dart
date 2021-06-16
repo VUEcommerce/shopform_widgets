@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:shopform_widgets/constants/sf_product_constants.dart';
 import 'package:shopform_widgets/content_space/sf_content_space.dart';
+import 'package:shopform_widgets/icons/sf_empty_live_stream_icon.dart';
+import 'package:shopform_widgets/loading_effects/sf_loading_container.dart';
 import 'package:shopform_widgets/utils/sf_app_color.dart';
 
 class SFLoadingEffect extends StatelessWidget {
@@ -43,12 +45,26 @@ class SFLoadingEffect extends StatelessWidget {
           SFContentSpace.vertical4(),
           LoadingItem(height: 12, width: double.maxFinite, radius: 6,),
           SFContentSpace.vertical4(),
-          LoadingItem(height: 12, width: 60, radius: 6,),
+          LoadingItem(
+            height: 12,
+            width: 60,
+            radius: 6,
+          ),
         ],
       ),
     );
     return SFLoadingEffect(
       child: child,
+    );
+  }
+
+  static Widget postGridLoadingItem({@required double itemWidth}) {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        SFLoadingContainer(radius: 4, height: itemWidth, width: itemWidth),
+        Center(child: SFEmptyLiveStreamIcon()),
+      ],
     );
   }
 
