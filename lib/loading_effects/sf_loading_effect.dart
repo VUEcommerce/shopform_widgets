@@ -39,11 +39,11 @@ class SFLoadingEffect extends StatelessWidget {
         children: [
           LoadingItem(height: itemWidth/SFProductConstants.imageRatio),
           SFContentSpace.vertical14(),
-          LoadingItem(height: 12, width: 100, radius: 7,),
+          LoadingItem(height: 12, width: 100, radius: 6,),
           SFContentSpace.vertical4(),
-          LoadingItem(height: 12, width: double.maxFinite, radius: 7,),
+          LoadingItem(height: 12, width: double.maxFinite, radius: 6,),
           SFContentSpace.vertical4(),
-          LoadingItem(height: 12, width: 60, radius: 7,),
+          LoadingItem(height: 12, width: 60, radius: 6,),
         ],
       ),
     );
