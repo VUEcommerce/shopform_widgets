@@ -67,6 +67,24 @@ class SFAppText extends StatelessWidget {
         ),
       );
 
+  factory SFAppText.dimGrey16Normal({
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+  }) =>
+      SFAppText(
+        text,
+        textAlign: textAlign,
+        textOverflow: textOverflow,
+        maxLines: maxLines,
+        style: TextStyle(
+          fontWeight: FontWeight.normal,
+          color: SFAppColor.dimGrey,
+          fontSize: 16,
+        ),
+      );
+
   factory SFAppText.black16Normal({
     String text,
     TextAlign textAlign,
@@ -320,6 +338,24 @@ class SFAppText extends StatelessWidget {
           fontWeight: FontWeight.normal,
           color: SFAppColor.dimGrey,
           fontSize: 12,
+        ),
+      );
+
+  factory SFAppText.dimGrey11Normal({
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+  }) =>
+      SFAppText(
+        text,
+        textAlign: textAlign,
+        textOverflow: textOverflow,
+        maxLines: maxLines,
+        style: TextStyle(
+          fontWeight: FontWeight.normal,
+          color: SFAppColor.dimGrey,
+          fontSize: 11,
         ),
       );
 
