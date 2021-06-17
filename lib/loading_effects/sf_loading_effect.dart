@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:shopform_widgets/constants/sf_product_constants.dart';
 import 'package:shopform_widgets/content_space/sf_content_space.dart';
+import 'package:shopform_widgets/icons/sf_empty_live_stream_icon.dart';
+import 'package:shopform_widgets/loading_effects/sf_loading_container.dart';
 import 'package:shopform_widgets/utils/sf_app_color.dart';
 
 class SFLoadingEffect extends StatelessWidget {
@@ -38,15 +40,31 @@ class SFLoadingEffect extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           LoadingItem(height: itemWidth/SFProductConstants.imageRatio),
-          SFContentSpace.vertical12(),
-          LoadingItem(height: 14),
-          SFContentSpace.vertical2(),
-          LoadingItem(height: 14),
+          SFContentSpace.vertical14(),
+          LoadingItem(height: 12, width: 100, radius: 6,),
+          SFContentSpace.vertical4(),
+          LoadingItem(height: 12, width: double.maxFinite, radius: 6,),
+          SFContentSpace.vertical4(),
+          LoadingItem(
+            height: 12,
+            width: 60,
+            radius: 6,
+          ),
         ],
       ),
     );
     return SFLoadingEffect(
       child: child,
+    );
+  }
+
+  static Widget postGridLoadingItem({@required double itemWidth}) {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        SFLoadingContainer(radius: 4, height: itemWidth, width: itemWidth),
+        Center(child: SFEmptyLiveStreamIcon()),
+      ],
     );
   }
 
@@ -97,11 +115,20 @@ class SFLoadingEffect extends StatelessWidget {
   factory SFLoadingEffect.collectionItemInDetailList() {
     final child = Container(
       padding: const EdgeInsets.only(bottom: 24.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4),
+        boxShadow: [
+          BoxShadow(
+              offset: Offset(0, 1),
+              blurRadius: 2,
+              color: Color.fromRGBO(0, 0, 0, 0.25))
+        ],
+      ),
       child: Column(
         children: [
           LoadingItem(height: 168),
           SFContentSpace.vertical2(),
-          LoadingItem(height: 30),
+          LoadingItem(height: 50),
         ],
       ),
     );
@@ -131,9 +158,9 @@ class SFLoadingEffect extends StatelessWidget {
       children: [
         ClipOval(
             child: LoadingItem(
-          height: 116,
-          width: 116,
-        )),
+              height: 116,
+              width: 116,
+            )),
         Padding(
           padding: EdgeInsets.only(top: 8),
           child: Container(
@@ -252,160 +279,160 @@ class SFLoadingEffect extends StatelessWidget {
   factory SFLoadingEffect.coinRewardHistoryLoadingItem() {
     return SFLoadingEffect(
         child: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: Container(
-                  height: 19,
-                  color: SFAppColor.white,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 19,
+                      color: SFAppColor.white,
+                    ),
+                  ),
+                  Expanded(
+                    child: SizedBox(),
+                    flex: 2,
+                  )
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 4),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        height: 16,
+                        color: SFAppColor.white,
+                      ),
+                    ),
+                    Expanded(child: SizedBox()),
+                  ],
                 ),
               ),
-              Expanded(
-                child: SizedBox(),
-                flex: 2,
-              )
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 4),
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Container(
-                    height: 16,
-                    color: SFAppColor.white,
-                  ),
-                ),
-                Expanded(child: SizedBox()),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ));
+        ));
   }
 
   factory SFLoadingEffect.productRewardLoadingItem() {
     return SFLoadingEffect(
         child: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Row(
-        children: [
-          Container(
-            width: 42,
-            height: 42,
-            clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(
-              color: SFAppColor.white,
-              borderRadius: BorderRadius.circular(4),
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
+            children: [
+              Container(
+                width: 42,
+                height: 42,
+                clipBehavior: Clip.antiAlias,
+                decoration: BoxDecoration(
+                  color: SFAppColor.white,
+                  borderRadius: BorderRadius.circular(4),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(
-                        flex: 2,
-                        child: Container(
-                          height: 16,
-                          color: SFAppColor.white,
+                      Row(
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: Container(
+                              height: 16,
+                              color: SFAppColor.white,
+                            ),
+                          ),
+                          Expanded(
+                            child: SizedBox(),
+                          )
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                height: 16,
+                                color: SFAppColor.white,
+                              ),
+                            ),
+                            Expanded(
+                              child: SizedBox(),
+                              flex: 3,
+                            )
+                          ],
                         ),
                       ),
-                      Expanded(
-                        child: SizedBox(),
-                      )
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 4),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            height: 16,
-                            color: SFAppColor.white,
-                          ),
-                        ),
-                        Expanded(
-                          child: SizedBox(),
-                          flex: 3,
-                        )
-                      ],
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
-    ));
+        ));
   }
 
   factory SFLoadingEffect.notificationItem() {
     return SFLoadingEffect(
         child: Container(
-      decoration: BoxDecoration(
-          border: Border(
-              bottom: BorderSide(width: 1, color: SFAppColor.dividerGray))),
-      padding: EdgeInsets.all(16),
-      child: Row(
-        children: [
-          Container(
-            width: 38,
-            height: 38,
-            clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(
-              color: SFAppColor.white,
-              borderRadius: BorderRadius.circular(19),
-            ),
-          ),
-          SFContentSpace.horizontal18(),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  width: 100,
-                  height: 10,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    color: SFAppColor.white,
-                    borderRadius: BorderRadius.circular(2),
-                  ),
+          decoration: BoxDecoration(
+              border: Border(
+                  bottom: BorderSide(width: 1, color: SFAppColor.dividerGray))),
+          padding: EdgeInsets.all(16),
+          child: Row(
+            children: [
+              Container(
+                width: 38,
+                height: 38,
+                clipBehavior: Clip.antiAlias,
+                decoration: BoxDecoration(
+                  color: SFAppColor.white,
+                  borderRadius: BorderRadius.circular(19),
                 ),
-                SFContentSpace.vertical2(),
-                Container(
-                  width: 50,
-                  height: 10,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    color: SFAppColor.white,
-                    borderRadius: BorderRadius.circular(2),
-                  ),
-                )
-              ],
-            ),
+              ),
+              SFContentSpace.horizontal18(),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 100,
+                      height: 10,
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                        color: SFAppColor.white,
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                    SFContentSpace.vertical2(),
+                    Container(
+                      width: 50,
+                      height: 10,
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                        color: SFAppColor.white,
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              SFContentSpace.horizontal18(),
+              Container(
+                width: 36,
+                height: 36,
+                color: SFAppColor.white,
+              ),
+            ],
           ),
-          SFContentSpace.horizontal18(),
-          Container(
-            width: 36,
-            height: 36,
-            color: SFAppColor.white,
-          ),
-        ],
-      ),
-    ));
+        ));
   }
 
   factory SFLoadingEffect.consumerProfileReferralCode() {
@@ -444,39 +471,39 @@ class SFLoadingEffect extends StatelessWidget {
 
     return SFLoadingEffect(
         child: Container(
-      padding: EdgeInsets.only(left: 16, right: 16, bottom: 36, top: 24),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Expanded(
-            flex: 7,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildLoading(200),
-                SFContentSpace.vertical4(),
-                _buildLoading(200),
-                SFContentSpace.vertical14(),
-                _buildLoading(100),
-                SFContentSpace.vertical8(),
-                _buildLoading(80),
-              ],
-            ),
+          padding: EdgeInsets.only(left: 16, right: 16, bottom: 36, top: 24),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                flex: 7,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildLoading(200),
+                    SFContentSpace.vertical4(),
+                    _buildLoading(200),
+                    SFContentSpace.vertical14(),
+                    _buildLoading(100),
+                    SFContentSpace.vertical8(),
+                    _buildLoading(80),
+                  ],
+                ),
+              ),
+              Expanded(
+                  flex: 3,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildLoading(80),
+                      SFContentSpace.vertical14(),
+                      _buildLoading(50),
+                    ],
+                  )),
+            ],
           ),
-          Expanded(
-              flex: 3,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _buildLoading(80),
-                  SFContentSpace.vertical14(),
-                  _buildLoading(50),
-                ],
-              )),
-        ],
-      ),
-    ));
+        ));
   }
 
   factory SFLoadingEffect.selectBrandItemSocialPost() {
@@ -802,11 +829,15 @@ class SFLoadingEffect extends StatelessWidget {
 class LoadingItem extends StatelessWidget {
   final double height;
   final double width;
+  final double radius;
 
-  const LoadingItem({Key key, this.height, this.width}) : super(key: key);
+  const LoadingItem({Key key, this.height, this.width, this.radius = 0}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(color: Colors.white, height: height, width: width);
+    return Container(decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(radius)
+    ), height: height, width: width);
   }
 }
