@@ -431,6 +431,24 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
+  factory SFAppText.grey12Normal(
+          {String text,
+          TextAlign textAlign,
+          TextOverflow textOverflow,
+          int maxLines,
+          TextStyle style}) =>
+      SFAppText(
+        text,
+        textAlign: textAlign,
+        textOverflow: textOverflow,
+        maxLines: maxLines,
+        style: TextStyle(
+          fontWeight: FontWeight.normal,
+          color: SFAppColor.grey,
+          fontSize: 12,
+        ).merge(style),
+      );
+
   factory SFAppText.grey16Bold(
           {String text,
           TextAlign textAlign,
