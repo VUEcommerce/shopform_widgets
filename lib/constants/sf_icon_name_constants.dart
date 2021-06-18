@@ -253,3 +253,4 @@ const appIcon = '${folderAssetsLogo}shopform_logo_black.png';
 const reportIllustration = '${folderAssetsIcons}report_illustration.svg';
 const iconHide = '${folderAssetsIcons}icon_hide.svg';
 const iconWarning = '${folderAssetsIcons}icon_warning.svg';
+const iconHideBold = '${folderAssetsIcons}icon_hide_bold.svg';
