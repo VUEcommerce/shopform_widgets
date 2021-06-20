@@ -2,7 +2,6 @@ library shopform_widgets;
 
 export 'app_bars/sf_app_bar.dart';
 export 'buttons/SF_circular_edit_icon_button.dart';
-export 'buttons/dropdown/sf_header_dropdown_button.dart';
 export 'buttons/follow/sf_follow_button.dart';
 export 'buttons/follow/sf_follow_type.dart';
 export 'buttons/sf_button.dart';
