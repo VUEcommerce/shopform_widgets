@@ -41,7 +41,7 @@ class SFButtonSolidCircular extends StatelessWidget {
   factory SFButtonSolidCircular.disabled(
       {@required Widget icon, String text, double width, double height}) {
     return SFButtonSolidCircular(
-      color: SFAppColor.noble,
+      color: SFAppColor.noble.withOpacity(0.3),
       icon: icon,
       text: text,
       width: width,
