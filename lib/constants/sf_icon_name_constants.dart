@@ -254,3 +254,9 @@ const reportIllustration = '${folderAssetsIcons}report_illustration.svg';
 const iconHide = '${folderAssetsIcons}icon_hide.svg';
 const iconWarning = '${folderAssetsIcons}icon_warning.svg';
 const iconHideBold = '${folderAssetsIcons}icon_hide_bold.svg';
+const referralCodeRedeemCoinImage =
+    '${folderAssetsImages}referral_code_redeem_coin_image.png';
+const referralCodeAvailable = '${folderAssetsIcons}referral_code_available.png';
+const referralCodeUnavailable =
+    '${folderAssetsIcons}referral_code_unavailable.png';
+const enterReferralCode = '${folderAssetsIcons}enter_referral_code.png';
