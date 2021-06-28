@@ -250,3 +250,7 @@ const thickMinus = '${folderAssetsIcons}thick_minus.svg';
 const squaredTickIcon = '${folderAssetsIcons}squared_tick_icon.svg';
 const productNotFound = '${folderAssetsImages}product_not_found.svg';
 const appIcon = '${folderAssetsLogo}shopform_logo_black.png';
+const reportIllustration = '${folderAssetsIcons}report_illustration.svg';
+const iconHide = '${folderAssetsIcons}icon_hide.svg';
+const iconWarning = '${folderAssetsIcons}icon_warning.svg';
+const iconHideBold = '${folderAssetsIcons}icon_hide_bold.svg';
