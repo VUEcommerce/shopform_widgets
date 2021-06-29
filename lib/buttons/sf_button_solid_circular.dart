@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:shopform_widgets/content_space/sf_content_space.dart';
 import 'package:shopform_widgets/text/sf_app_text.dart';
 import 'package:shopform_widgets/utils/sf_app_color.dart';
+import 'package:shopform_widgets/utils/sf_app_text_style.dart';
 
 class SFButtonSolidCircular extends StatelessWidget {
   final Color color;
@@ -11,6 +12,7 @@ class SFButtonSolidCircular extends StatelessWidget {
   final VoidCallback onTap;
   final double width;
   final double height;
+  final Color textColor;
 
   const SFButtonSolidCircular({
     Key key,
@@ -20,6 +22,7 @@ class SFButtonSolidCircular extends StatelessWidget {
     this.onTap,
     this.width = 24.0,
     this.height = 24.0,
+    this.textColor,
   }) : super(key: key);
 
   factory SFButtonSolidCircular.yellow(
@@ -46,6 +49,7 @@ class SFButtonSolidCircular extends StatelessWidget {
       text: text,
       width: width,
       height: height,
+      textColor: SFAppColor.noble.withOpacity(0.3),
     );
   }
 
@@ -78,10 +82,15 @@ class SFButtonSolidCircular extends StatelessWidget {
         SFContentSpace.vertical8(),
         SizedBox(
           width: 70,
-          child: SFAppText.black14Normal(
+          child: SFAppText(
+            text,
             textAlign: TextAlign.center,
-            text: text,
             maxLines: 2,
+            style: SFAppTextStyle.of(
+              context,
+              color: textColor ?? SFAppColor.black,
+              fontSize: 14,
+            ),
           ),
         ),
       ]);
