@@ -19,24 +19,25 @@ class SFSearchField extends StatefulWidget {
   final bool alwaysHideCancel;
   final bool permanentCancelButton;
   final String cancelText;
+  final VoidCallback onEditingComplete;
 
-  SFSearchField({
-    this.focusNode,
-    this.controller,
-    this.onSubmitted,
-    this.onCancel,
-    this.onTap,
-    this.margin,
-    this.hint,
-    this.cancelColor,
-    this.suffixIcon,
-    this.onFocusChanged,
-    this.autoFocus = false,
+  SFSearchField(
+      {this.focusNode,
+      this.controller,
+      this.onSubmitted,
+      this.onCancel,
+      this.onTap,
+      this.margin,
+      this.hint,
+      this.cancelColor,
+      this.suffixIcon,
+      this.onFocusChanged,
+      this.autoFocus = false,
     this.enable = true,
     this.alwaysHideCancel = false,
     this.permanentCancelButton = false,
     @required this.cancelText,
-  });
+    this.onEditingComplete});
 
   @override
   _SFSearchFieldState createState() => _SFSearchFieldState();
@@ -96,6 +97,7 @@ class _SFSearchFieldState extends State<SFSearchField>
                 controller: _internalTfController,
                 textAlign: TextAlign.start,
                 enabled: widget.enable,
+                onEditingComplete: widget.onEditingComplete,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(horizontal: 12.0),
                   enabledBorder: OutlineInputBorder(
@@ -133,9 +135,7 @@ class _SFSearchFieldState extends State<SFSearchField>
                 maxLines: 1,
                 minLines: 1,
                 textInputAction: TextInputAction.search,
-                onSubmitted: (value) {
-                  widget.onSubmitted?.call(value);
-                },
+                onSubmitted: widget.onSubmitted,
               ),
             ],
           ),
@@ -172,7 +172,7 @@ class _SFSearchFieldState extends State<SFSearchField>
                     child: Center(
                       child: widget.suffixIcon,
                     ),
-                  )
+                        )
                       : Container()
               ],
             ),
@@ -182,23 +182,23 @@ class _SFSearchFieldState extends State<SFSearchField>
     );
   }
 
-  Padding buildCancelButton(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 12),
-      child: GestureDetector(
-        onTap: () {
-          if (!_internalFocus.hasFocus &&
-              _internalTfController.text.isNotEmpty) {
-            setState(() {
-              _internalTfController.clear();
-            });
-            _animController.reverse();
-          } else {
+  Widget buildCancelButton(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        if (!_internalFocus.hasFocus && _internalTfController.text.isNotEmpty) {
+          setState(() {
             _internalTfController.clear();
-            _internalFocus.unfocus();
-          }
-          widget.onCancel?.call();
-        },
+          });
+          _animController.reverse();
+        } else {
+          _internalTfController.clear();
+          _internalFocus.unfocus();
+        }
+        widget.onCancel?.call();
+      },
+      child: Container(
+        padding: const EdgeInsets.only(left: 12, top: 6, bottom: 6, right: 6),
+        color: Colors.transparent,
         child: Text(
           widget.cancelText,
           maxLines: 1,
