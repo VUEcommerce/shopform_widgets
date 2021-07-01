@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:shopform_widgets/utils/sf_app_color.dart';
 import 'package:shopform_widgets/text_fields/sf_search_field.dart';
+import 'package:shopform_widgets/utils/sf_app_color.dart';
 
 class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
   final AppBar appBar;
@@ -120,6 +120,7 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
     bool permanentCancelButton = false,
     VoidCallback onTap,
     VoidCallback onCancel,
+    VoidCallback onEditingComplete,
     @required String cancelText,
   }) {
     return SFAppBar(
@@ -132,6 +133,7 @@ class SFAppBar extends StatelessWidget implements PreferredSizeWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             height: 35,
             child: SFSearchField(
+              onEditingComplete: onEditingComplete,
               cancelText: cancelText,
               hint: hintText,
               cancelColor: Colors.white,
