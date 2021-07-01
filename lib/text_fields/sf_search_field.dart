@@ -197,7 +197,7 @@ class _SFSearchFieldState extends State<SFSearchField>
         widget.onCancel?.call();
       },
       child: Container(
-        padding: const EdgeInsets.only(left: 12, top: 6, bottom: 6, right: 6),
+        padding: const EdgeInsets.only(left: 12, top: 6, bottom: 6),
         color: Colors.transparent,
         child: Text(
           widget.cancelText,
