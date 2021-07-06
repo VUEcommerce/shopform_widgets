@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopform_widgets/buttons/sf_pressable_widget.dart';
 import 'package:shopform_widgets/constants/sf_button_constants.dart';
 
 enum SFIconPosition {
@@ -283,20 +284,23 @@ class SFButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-      padding: EdgeInsets.zero,
-      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius)),
-      onPressed: enabled ? onPressed?.call : null,
-      disabledTextColor: Colors.grey[600],
-      child: Material(
-        color: isTransparent ? Colors.transparent : Colors.white,
-        type: MaterialType.button,
-        borderRadius: BorderRadius.circular(radius),
-        key: key,
-        elevation: elevation,
-        child: _createContainer(context),
+    return SFPressableWidget(
+      onTap: onPressed,
+      child: FlatButton(
+        padding: EdgeInsets.zero,
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius)),
+        onPressed: null,
+        disabledTextColor: Colors.grey[600],
+        child: Material(
+          color: isTransparent ? Colors.transparent : Colors.white,
+          type: MaterialType.button,
+          borderRadius: BorderRadius.circular(radius),
+          key: key,
+          elevation: elevation,
+          child: _createContainer(context),
+        ),
       ),
     );
   }
