@@ -54,7 +54,7 @@ class SFCachedNetworkCircleImage extends StatelessWidget {
           BoxShadow(
             offset: Offset(0, 4),
             blurRadius: 4,
-            color: SFAppColor.black.withOpacity(0.25),
+            color: SFAppColor.greyDark.withOpacity(0.25),
           )
         ],
       ),

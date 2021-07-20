@@ -3,8 +3,10 @@ import 'package:shopform_widgets/utils/sf_app_color.dart';
 import 'package:shopform_widgets/utils/sf_app_text_style.dart';
 
 class SFAppText extends StatelessWidget {
-  factory SFAppText.gainsboroGray12Normal(
-      {double height, @required String text}) {
+  SFAppText._(
+      this.data, this.style, this.textAlign, this.textOverflow, this.maxLines);
+
+  factory SFAppText.gainsboroGray12Normal({double height, @required String text}) {
     return SFAppText(
       text,
       style: TextStyle(
@@ -439,13 +441,12 @@ class SFAppText extends StatelessWidget {
         ),
       );
 
-  factory SFAppText.grey14Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.grey14Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -459,13 +460,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.grey10Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.grey10Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -479,13 +479,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.grey12Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.grey12Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -499,13 +498,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.grey16Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.grey16Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -519,13 +517,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.grey18Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.grey18Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -539,13 +536,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.black14Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.black14Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -606,6 +602,7 @@ class SFAppText extends StatelessWidget {
     TextAlign textAlign,
     TextOverflow textOverflow,
     int maxLines,
+    TextStyle style,
   }) =>
       SFAppText(
         text,
@@ -617,7 +614,7 @@ class SFAppText extends StatelessWidget {
           fontWeight: FontWeight.normal,
           color: SFAppColor.neonBlue,
           fontSize: 12,
-        ),
+        ).merge(style),
       );
 
   factory SFAppText.white16Bold({
@@ -741,13 +738,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.black14Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.black14Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -761,13 +757,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.lightOrange14Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.lightOrange14Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -781,13 +776,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.lightOrange14Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.lightOrange14Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -801,13 +795,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.red14Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.red14Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -821,13 +814,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.red11Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.red11Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -841,13 +833,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.red11Italic(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.red11Italic({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -862,13 +853,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.red14Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.red14Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -902,13 +892,12 @@ class SFAppText extends StatelessWidget {
         ),
       );
 
-  factory SFAppText.black12Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.black12Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -922,13 +911,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.black10Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.black10Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -942,13 +930,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.black12Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.black12Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -962,13 +949,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.black10Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.black10Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -982,12 +968,11 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.black32Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines}) =>
+  factory SFAppText.black32Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -1021,13 +1006,12 @@ class SFAppText extends StatelessWidget {
         ),
       );
 
-  factory SFAppText.white13Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.white13Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -1309,8 +1293,7 @@ class SFAppText extends StatelessWidget {
     );
   }
 
-  factory SFAppText.red12(
-      {double height, @required String text, TextStyle style}) {
+  factory SFAppText.red12({double height, @required String text, TextStyle style}) {
     return SFAppText(
       text,
       style: TextStyle(
@@ -1343,13 +1326,12 @@ class SFAppText extends StatelessWidget {
         ),
       );
 
-  factory SFAppText.white24Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.white24Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -1383,13 +1365,12 @@ class SFAppText extends StatelessWidget {
         ),
       );
 
-  factory SFAppText.white45Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.white45Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -1422,13 +1403,12 @@ class SFAppText extends StatelessWidget {
         ),
       );
 
-  factory SFAppText.green12Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.green12Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -1448,8 +1428,7 @@ class SFAppText extends StatelessWidget {
   final TextOverflow textOverflow;
   final int maxLines;
 
-  const SFAppText(
-    this.data, {
+  const SFAppText(this.data, {
     @required this.style,
     this.textAlign,
     this.textOverflow,
