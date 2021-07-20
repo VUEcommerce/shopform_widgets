@@ -20,7 +20,7 @@ class SFElevatedButton extends StatelessWidget {
     @required this.onTap,
     this.isExpanded = false,
     this.borderRadius = const BorderRadius.all(Radius.circular(6)),
-    this.backgroundColor = SFAppColor.tulipTreeGold,
+    this.backgroundColor = SFAppColor.lightOrange,
     this.strokeColor,
   });
 

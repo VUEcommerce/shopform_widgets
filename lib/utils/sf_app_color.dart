@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SFAppColor {
+  SFAppColor._();
 //  Figma palette colors
   static const black = Color(0xff000000);
   static const lightPink = Color(0xffFFECE6);
@@ -12,7 +13,7 @@ class SFAppColor {
   static const whiteSmoke = Color(0xffF3F3F3);
   static const white = Color(0xffFFFFFF);
   static const tulipTreeGold = Color(0xffE0AA3E);
-  static const ginFizz = Color(0xffF7EACF);
+  static const chablis = Color(0xffFDEBE4);
   static const red = Color(0xffE20000);
   static const orangeRed = Color(0xffFF3D00);
   static const moonYellow = Color(0xffFFBF1C);
@@ -43,4 +44,5 @@ class SFAppColor {
   static const grey = Color(0xff666666);
   static const serenade = Color(0xffFFF5E5);
   static const tundora = Color(0xff535150);
+  static const lightOrange = Color(0xffF2784B);
 }

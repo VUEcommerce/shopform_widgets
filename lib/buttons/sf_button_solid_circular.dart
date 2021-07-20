@@ -32,7 +32,7 @@ class SFButtonSolidCircular extends StatelessWidget {
       double width,
       double height}) {
     return SFButtonSolidCircular(
-      color: SFAppColor.tulipTreeGold,
+      color: SFAppColor.lightOrange,
       icon: icon,
       text: text,
       onTap: onTap,

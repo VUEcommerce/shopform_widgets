@@ -3,8 +3,10 @@ import 'package:shopform_widgets/utils/sf_app_color.dart';
 import 'package:shopform_widgets/utils/sf_app_text_style.dart';
 
 class SFAppText extends StatelessWidget {
-  factory SFAppText.gainsboroGray12Normal(
-      {double height, @required String text}) {
+  SFAppText._(
+      this.data, this.style, this.textAlign, this.textOverflow, this.maxLines);
+
+  factory SFAppText.gainsboroGray12Normal({double height, @required String text}) {
     return SFAppText(
       text,
       style: TextStyle(
@@ -217,7 +219,7 @@ class SFAppText extends StatelessWidget {
         ),
       );
 
-  factory SFAppText.gold16Bold({
+  factory SFAppText.lightOrange16Bold({
     double height,
     String text,
     TextAlign textAlign,
@@ -233,12 +235,12 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontWeight: FontWeight.bold,
-          color: SFAppColor.tulipTreeGold,
+          color: SFAppColor.lightOrange,
           fontSize: 16,
         ).merge(style),
       );
 
-  factory SFAppText.gold18Bold({
+  factory SFAppText.lightOrange18Bold({
     double height,
     String text,
     TextAlign textAlign,
@@ -253,12 +255,12 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontWeight: FontWeight.bold,
-          color: SFAppColor.tulipTreeGold,
+          color: SFAppColor.lightOrange,
           fontSize: 18,
         ),
       );
 
-  factory SFAppText.gold12Bold({
+  factory SFAppText.lightOrange12Bold({
     double height,
     String text,
     TextAlign textAlign,
@@ -273,12 +275,12 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontWeight: FontWeight.bold,
-          color: SFAppColor.tulipTreeGold,
+          color: SFAppColor.lightOrange,
           fontSize: 12,
         ),
       );
 
-  factory SFAppText.gold36Normal({
+  factory SFAppText.lightOrange36Normal({
     double height,
     String text,
     TextAlign textAlign,
@@ -293,7 +295,7 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontWeight: FontWeight.normal,
-          color: SFAppColor.tulipTreeGold,
+          color: SFAppColor.lightOrange,
           fontSize: 36,
         ),
       );
@@ -439,13 +441,12 @@ class SFAppText extends StatelessWidget {
         ),
       );
 
-  factory SFAppText.grey14Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.grey14Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -459,13 +460,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.grey10Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.grey10Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -479,13 +479,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.grey12Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.grey12Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -499,13 +498,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.grey16Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.grey16Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -519,13 +517,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.grey18Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.grey18Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -539,13 +536,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.black14Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.black14Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -606,6 +602,7 @@ class SFAppText extends StatelessWidget {
     TextAlign textAlign,
     TextOverflow textOverflow,
     int maxLines,
+    TextStyle style,
   }) =>
       SFAppText(
         text,
@@ -617,7 +614,7 @@ class SFAppText extends StatelessWidget {
           fontWeight: FontWeight.normal,
           color: SFAppColor.neonBlue,
           fontSize: 12,
-        ),
+        ).merge(style),
       );
 
   factory SFAppText.white16Bold({
@@ -741,13 +738,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.black14Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.black14Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -761,13 +757,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.gold14Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.lightOrange14Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -776,18 +771,17 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontWeight: FontWeight.bold,
-          color: SFAppColor.tulipTreeGold,
+          color: SFAppColor.lightOrange,
           fontSize: 14,
         ).merge(style),
       );
 
-  factory SFAppText.gold14Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.lightOrange14Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -796,18 +790,17 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontWeight: FontWeight.normal,
-          color: SFAppColor.tulipTreeGold,
+          color: SFAppColor.lightOrange,
           fontSize: 14,
         ).merge(style),
       );
 
-  factory SFAppText.red14Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.red14Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -821,13 +814,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.red11Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.red11Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -841,13 +833,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.red11Italic(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.red11Italic({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -862,13 +853,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.red14Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.red14Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -882,7 +872,7 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.gold16Normal({
+  factory SFAppText.lightOrange16Normal({
     double height,
     String text,
     TextAlign textAlign,
@@ -897,18 +887,17 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontWeight: FontWeight.normal,
-          color: SFAppColor.tulipTreeGold,
+          color: SFAppColor.lightOrange,
           fontSize: 16,
         ),
       );
 
-  factory SFAppText.black12Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.black12Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -922,13 +911,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.black10Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.black10Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -942,13 +930,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.black12Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.black12Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -962,13 +949,12 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.black10Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.black10Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -982,12 +968,11 @@ class SFAppText extends StatelessWidget {
         ).merge(style),
       );
 
-  factory SFAppText.black32Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines}) =>
+  factory SFAppText.black32Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -1021,13 +1006,12 @@ class SFAppText extends StatelessWidget {
         ),
       );
 
-  factory SFAppText.white13Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.white13Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -1141,7 +1125,7 @@ class SFAppText extends StatelessWidget {
         ),
       );
 
-  factory SFAppText.tulipTreeGold12Normal({
+  factory SFAppText.lightOrange12Normal({
     double height,
     String text,
     TextAlign textAlign,
@@ -1157,12 +1141,12 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontWeight: FontWeight.normal,
-          color: SFAppColor.tulipTreeGold,
+          color: SFAppColor.lightOrange,
           fontSize: 12,
         ).merge(style),
       );
 
-  factory SFAppText.tulipTreeGold12Bold({
+  factory SFAppText.lightOrange18Normal({
     double height,
     String text,
     TextAlign textAlign,
@@ -1176,112 +1160,12 @@ class SFAppText extends StatelessWidget {
         maxLines: maxLines,
         style: TextStyle(
           height: height,
-          fontWeight: FontWeight.bold,
-          color: SFAppColor.tulipTreeGold,
-          fontSize: 12,
-        ),
-      );
-
-  factory SFAppText.tulipTreeGold14Bold({
-    double height,
-    String text,
-    TextAlign textAlign,
-    TextOverflow textOverflow,
-    int maxLines,
-  }) =>
-      SFAppText(
-        text,
-        textAlign: textAlign,
-        textOverflow: textOverflow,
-        maxLines: maxLines,
-        style: TextStyle(
-          height: height,
-          fontWeight: FontWeight.bold,
-          color: SFAppColor.tulipTreeGold,
-          fontSize: 14,
-        ),
-      );
-
-  factory SFAppText.tulipTreeGold14Normal({
-    double height,
-    String text,
-    TextAlign textAlign,
-    TextOverflow textOverflow,
-    TextStyle style,
-    int maxLines,
-  }) =>
-      SFAppText(
-        text,
-        textAlign: textAlign,
-        textOverflow: textOverflow,
-        maxLines: maxLines,
-        style: TextStyle(
-          height: height,
-          fontWeight: FontWeight.normal,
-          color: SFAppColor.tulipTreeGold,
-          fontSize: 14,
-        ).merge(style),
-      );
-
-  factory SFAppText.tulipTreeGold16Normal({
-    double height,
-    String text,
-    TextAlign textAlign,
-    TextOverflow textOverflow,
-    int maxLines,
-  }) =>
-      SFAppText(
-        text,
-        textAlign: textAlign,
-        textOverflow: textOverflow,
-        maxLines: maxLines,
-        style: TextStyle(
-          height: height,
-          color: SFAppColor.tulipTreeGold,
-          fontSize: 16,
-        ),
-      );
-
-  factory SFAppText.tulipTreeGold16Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
-      SFAppText(
-        text,
-        textAlign: textAlign,
-        textOverflow: textOverflow,
-        maxLines: maxLines,
-        style: TextStyle(
-            height: height,
-                color: SFAppColor.tulipTreeGold,
-                fontSize: 16,
-                fontWeight: FontWeight.bold)
-            .merge(style),
-      );
-
-  factory SFAppText.tulipTreeGold18Normal({
-    double height,
-    String text,
-    TextAlign textAlign,
-    TextOverflow textOverflow,
-    int maxLines,
-  }) =>
-      SFAppText(
-        text,
-        textAlign: textAlign,
-        textOverflow: textOverflow,
-        maxLines: maxLines,
-        style: TextStyle(
-          height: height,
-          color: SFAppColor.tulipTreeGold,
+          color: SFAppColor.lightOrange,
           fontSize: 18,
         ),
       );
 
-  factory SFAppText.tulipTreeGold16SemiBold({
+  factory SFAppText.lightOrange16SemiBold({
     double height,
     String text,
     TextAlign textAlign,
@@ -1296,12 +1180,12 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontWeight: FontWeight.w600,
-          color: SFAppColor.tulipTreeGold,
+          color: SFAppColor.lightOrange,
           fontSize: 16,
         ),
       );
 
-  factory SFAppText.tulipTreeGold10italic({
+  factory SFAppText.lightOrange10italic({
     double height,
     String text,
     TextAlign textAlign,
@@ -1318,12 +1202,12 @@ class SFAppText extends StatelessWidget {
           height: height,
           fontWeight: FontWeight.normal,
           fontStyle: FontStyle.italic,
-          color: SFAppColor.tulipTreeGold,
+          color: SFAppColor.lightOrange,
           fontSize: 10,
         ).merge(style),
       );
 
-  factory SFAppText.tulipTreeGold14italic({
+  factory SFAppText.lightOrange14italic({
     double height,
     String text,
     TextAlign textAlign,
@@ -1338,7 +1222,7 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontStyle: FontStyle.italic,
-          color: SFAppColor.tulipTreeGold,
+          color: SFAppColor.lightOrange,
           fontSize: 14,
         ),
       );
@@ -1409,8 +1293,7 @@ class SFAppText extends StatelessWidget {
     );
   }
 
-  factory SFAppText.red12(
-      {double height, @required String text, TextStyle style}) {
+  factory SFAppText.red12({double height, @required String text, TextStyle style}) {
     return SFAppText(
       text,
       style: TextStyle(
@@ -1443,13 +1326,12 @@ class SFAppText extends StatelessWidget {
         ),
       );
 
-  factory SFAppText.white24Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.white24Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -1483,13 +1365,12 @@ class SFAppText extends StatelessWidget {
         ),
       );
 
-  factory SFAppText.white45Bold(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.white45Bold({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -1522,13 +1403,12 @@ class SFAppText extends StatelessWidget {
         ),
       );
 
-  factory SFAppText.green12Normal(
-          {double height,
-          String text,
-          TextAlign textAlign,
-          TextOverflow textOverflow,
-          int maxLines,
-          TextStyle style}) =>
+  factory SFAppText.green12Normal({double height,
+    String text,
+    TextAlign textAlign,
+    TextOverflow textOverflow,
+    int maxLines,
+    TextStyle style}) =>
       SFAppText(
         text,
         textAlign: textAlign,
@@ -1548,8 +1428,7 @@ class SFAppText extends StatelessWidget {
   final TextOverflow textOverflow;
   final int maxLines;
 
-  const SFAppText(
-    this.data, {
+  const SFAppText(this.data, {
     @required this.style,
     this.textAlign,
     this.textOverflow,
