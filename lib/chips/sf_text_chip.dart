@@ -28,7 +28,7 @@ class SFTextChip extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: enable
-              ? (backgroundColor ?? SFAppColor.tulipTreeGold)
+              ? (backgroundColor ?? SFAppColor.lightOrange)
               : disabledBackgroundColor,
           borderRadius: BorderRadius.circular(5),
         ),

@@ -59,7 +59,7 @@ class SFCheckButton extends StatelessWidget {
               height: iconSize,
               decoration: BoxDecoration(
                 color: _isCheckedOrHalfChecked
-                    ? SFAppColor.tulipTreeGold
+                    ? SFAppColor.lightOrange
                     : SFAppColor.transparent,
                 borderRadius: BorderRadius.circular(2),
                 border: _getBorder(),
@@ -92,7 +92,7 @@ class SFCheckButton extends StatelessWidget {
     }
     return border ??
         Border.all(
-          color: SFAppColor.tulipTreeGold,
+          color: SFAppColor.lightOrange,
           width: 1,
         );
   }

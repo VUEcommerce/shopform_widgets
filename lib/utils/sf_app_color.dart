@@ -43,4 +43,5 @@ class SFAppColor {
   static const grey = Color(0xff666666);
   static const serenade = Color(0xffFFF5E5);
   static const tundora = Color(0xff535150);
+  static const lightOrange = Color(0xffF2784B);
 }
