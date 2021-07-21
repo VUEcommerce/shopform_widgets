@@ -35,7 +35,7 @@ class SFFollowButton extends StatelessWidget {
             fontWeight: FontWeight.w400,
             color: SFAppColor.white,
           ),
-          backgroundColor: SFAppColor.lightOrange,
+          backgroundColor: Theme.of(context).accentColor,
           height: 25,
           horizontalPadding: 18,
           onTap: onTap,

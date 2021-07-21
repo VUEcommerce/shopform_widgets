@@ -78,7 +78,8 @@ class _SFPartlyChipState extends State<SFPartlyChip> {
       },
       child: Container(
         decoration: BoxDecoration(
-            color: model.selected ? SFAppColor.lightOrange : Colors.white,
+            color:
+                model.selected ? Theme.of(context).accentColor : Colors.white,
             border: Border(
                 right: BorderSide(
               color: widget.borderColor ?? SFAppColor.gainsboroGray,
