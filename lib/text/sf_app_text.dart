@@ -235,7 +235,7 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontWeight: FontWeight.bold,
-          color: SFAppColor.lightOrange,
+          color: SFAppColor.accentColor,
           fontSize: 16,
         ).merge(style),
       );
@@ -255,7 +255,7 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontWeight: FontWeight.bold,
-          color: SFAppColor.lightOrange,
+          color: SFAppColor.accentColor,
           fontSize: 18,
         ),
       );
@@ -275,7 +275,7 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontWeight: FontWeight.bold,
-          color: SFAppColor.lightOrange,
+          color: SFAppColor.accentColor,
           fontSize: 12,
         ),
       );
@@ -295,7 +295,7 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontWeight: FontWeight.normal,
-          color: SFAppColor.lightOrange,
+          color: SFAppColor.accentColor,
           fontSize: 36,
         ),
       );
@@ -771,7 +771,7 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontWeight: FontWeight.bold,
-          color: SFAppColor.lightOrange,
+          color: SFAppColor.accentColor,
           fontSize: 14,
         ).merge(style),
       );
@@ -790,7 +790,7 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontWeight: FontWeight.normal,
-          color: SFAppColor.lightOrange,
+          color: SFAppColor.accentColor,
           fontSize: 14,
         ).merge(style),
       );
@@ -887,7 +887,7 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontWeight: FontWeight.normal,
-          color: SFAppColor.lightOrange,
+          color: SFAppColor.accentColor,
           fontSize: 16,
         ),
       );
@@ -1141,7 +1141,7 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontWeight: FontWeight.normal,
-          color: SFAppColor.lightOrange,
+          color: SFAppColor.accentColor,
           fontSize: 12,
         ).merge(style),
       );
@@ -1160,7 +1160,7 @@ class SFAppText extends StatelessWidget {
         maxLines: maxLines,
         style: TextStyle(
           height: height,
-          color: SFAppColor.lightOrange,
+          color: SFAppColor.accentColor,
           fontSize: 18,
         ),
       );
@@ -1180,7 +1180,7 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontWeight: FontWeight.w600,
-          color: SFAppColor.lightOrange,
+          color: SFAppColor.accentColor,
           fontSize: 16,
         ),
       );
@@ -1202,7 +1202,7 @@ class SFAppText extends StatelessWidget {
           height: height,
           fontWeight: FontWeight.normal,
           fontStyle: FontStyle.italic,
-          color: SFAppColor.lightOrange,
+          color: SFAppColor.accentColor,
           fontSize: 10,
         ).merge(style),
       );
@@ -1222,7 +1222,7 @@ class SFAppText extends StatelessWidget {
         style: TextStyle(
           height: height,
           fontStyle: FontStyle.italic,
-          color: SFAppColor.lightOrange,
+          color: SFAppColor.accentColor,
           fontSize: 14,
         ),
       );
